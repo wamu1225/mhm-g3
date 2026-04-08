@@ -14,6 +14,21 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="試験ガイド | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />
     <meta name="twitter:description" content="メンタルヘルスマネジメント検定Ⅲ種の試験概要・出題範囲・学習の進め方を解説。合格基準・試験時間・推奨学習時間など受験に必要な情報をまとめました。" />
+    <script>
+      // Restore URL after GitHub Pages 404 redirect (?/path/ → /mhm-g3/path/)
+      (function () {
+        var s = window.location.search;
+        if (s[1] === '/') {
+          var decoded = s.slice(1).split('&').map(function (p) { return p.replace(/~and~/g, '&'); });
+          window.history.replaceState(
+            null, null,
+            '/mhm-g3' + decoded[0] +
+            (decoded.slice(1).length ? '?' + decoded.slice(1).join('&') : '') +
+            window.location.hash
+          );
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/mhm-g3/assets/index-Do1oUYo4.js"></script>
     <link rel="stylesheet" crossorigin href="/mhm-g3/assets/index-CgaSwh4V.css">
   </head>

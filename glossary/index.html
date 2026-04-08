@@ -14,6 +14,21 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="用語集 | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />
     <meta name="twitter:description" content="メンタルヘルスマネジメント検定Ⅲ種の頻出用語を一覧で解説。ストレス・セルフケア・4つのケア・ストレスチェック制度など試験に出る専門用語を網羅。" />
+    <script>
+      // Restore URL after GitHub Pages 404 redirect (?/path/ → /mhm-g3/path/)
+      (function () {
+        var s = window.location.search;
+        if (s[1] === '/') {
+          var decoded = s.slice(1).split('&').map(function (p) { return p.replace(/~and~/g, '&'); });
+          window.history.replaceState(
+            null, null,
+            '/mhm-g3' + decoded[0] +
+            (decoded.slice(1).length ? '?' + decoded.slice(1).join('&') : '') +
+            window.location.hash
+          );
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/mhm-g3/assets/index-Do1oUYo4.js"></script>
     <link rel="stylesheet" crossorigin href="/mhm-g3/assets/index-CgaSwh4V.css">
   </head>
