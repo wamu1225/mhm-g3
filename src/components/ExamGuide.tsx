@@ -149,10 +149,10 @@ export const ExamGuide: React.FC = () => (
     <section style={{ marginBottom: '2.5rem' }}>
       <h3><CheckCircle2 size={18} style={{ display: 'inline', marginRight: '6px' }} />試験当日のポイント</h3>
       <ul style={{ fontSize: '0.875rem', paddingLeft: '1.5rem' }}>
-        <li><strong>時間は十分ある：</strong>{EXAM_CONFIG.duration}分で{EXAM_CONFIG.questionCount}のため、1問に2分以上かけられます。落ち着いて読みましょう。</li>
+        <li><strong>時間は十分ある：</strong>{EXAM_CONFIG.duration}分で{EXAM_CONFIG.questionCount}あるため、1問に2分以上かけられます。落ち着いて読みましょう。</li>
         <li><strong>「最も適切なもの」に注意：</strong>「正しいもの」ではなく「最も適切なもの」を選ぶ問題が多いため、選択肢を全部読んでから比較します。</li>
         <li><strong>感覚で答えない：</strong>「なんとなく」ではなく、定義・法令・数値を根拠に選ぶ習慣をつけましょう。</li>
-        <li><strong>数値は正確に：</strong>「50人以上」「年1回」「2015年」「70点以上」「6時間以上」などの数値は頻出です。</li>
+        <li><strong>数値は正確に：</strong>「50人以上」「年1回」「2015年」「{EXAM_CONFIG.passingScore}点以上」「6時間以上」などの数値は頻出です。</li>
       </ul>
     </section>
 

@@ -477,7 +477,7 @@ function App() {
                         <span className="badge-chapter">Chapter {m.chapter}</span>
                         {p && (
                           <span className={`progress-badge ${p.score === p.total ? 'perfect' : ''}`}>
-                            {p.score === p.total ? '✓ ' : ''}{p.score}/{p.total}点
+                            {p.score === p.total ? '✓ ' : ''}{p.score}/{p.total}問
                           </span>
                         )}
                       </div>
@@ -537,7 +537,7 @@ function App() {
                 <section>
                   <h3>コンテンツ構成</h3>
                   <ul>
-                    <li><strong>学習モジュール（全{modules.length}章）</strong>：{modules.map(m => m.title).join('・')}</li>
+                    <li><strong>学習モジュール（全{modules.length}モジュール）</strong>：{modules.map(m => m.title).join('・')}</li>
                     <li><strong>用語集</strong>：Ⅲ種頻出用語の解説</li>
                     <li><strong>全範囲クイズ</strong>：全モジュールからランダム出題</li>
                   </ul>
@@ -609,7 +609,7 @@ function App() {
           <button className="footer-link" onClick={() => switchView('about')}>サイトについて</button>
           <button className="footer-link" onClick={() => switchView('privacy')}>プライバシーポリシー</button>
         </div>
-        <p className="footer-copy">© 2026 MHM-G3 学習リファレンス</p>
+        <p className="footer-copy">© 2026 メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</p>
       </footer>
     </div>
   );
