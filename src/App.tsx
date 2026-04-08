@@ -132,7 +132,7 @@ function App() {
       const segments = window.location.pathname.split('/').filter(Boolean);
       const lastSegment = segments[segments.length - 1];
 
-      const isCustomView = ['glossary', 'privacy', 'about', 'guide'].includes(lastSegment || '');
+      const isCustomView = ['glossary', 'privacy', 'about', 'guide', 'randomquiz'].includes(lastSegment || '');
 
       if (isCustomView) {
         setView(lastSegment as View);
@@ -448,7 +448,16 @@ function App() {
                     )}
                   </AnimatePresence>
                 </div>
-              ) : null}
+              ) : (
+                <div className="card" style={{ border: '1px solid #e2e8f0', textAlign: 'center', padding: '2rem' }}>
+                  <Shuffle size={32} style={{ color: 'var(--primary)', marginBottom: '1rem' }} />
+                  <h3 style={{ marginBottom: '0.5rem' }}>全範囲クイズ</h3>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>全モジュールからランダムに出題します。</p>
+                  <button className="btn" onClick={startRandomQuiz} style={{ width: 'auto', padding: '0.75rem 2rem' }}>
+                    <Shuffle size={16} /> クイズを始める
+                  </button>
+                </div>
+              )}
             </motion.div>
           ) : view === 'dashboard' ? (
             <motion.div key="dash" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}>

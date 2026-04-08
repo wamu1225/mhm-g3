@@ -4,6 +4,7 @@ import { modules } from '../src/data/modules';
 
 const DIST_DIR = path.resolve(process.cwd(), 'dist');
 const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
+const BASE_URL = 'https://wamu1225.github.io/mhm-g3';
 
 console.log('--- Starting Static Site Generation (SSG) Pre-rendering ---');
 
@@ -14,11 +15,6 @@ if (!fs.existsSync(INDEX_HTML_PATH)) {
 
 const templateHtml = fs.readFileSync(INDEX_HTML_PATH, 'utf-8');
 
-const subDirTemplateHtml = templateHtml
-  .replace(/href="\.\/assets\//g, 'href="../assets/')
-  .replace(/src="\.\/assets\//g, 'src="../assets/')
-  .replace(/href="\.\/favicon.svg"/g, 'href="../favicon.svg"');
-
 let generatedCount = 0;
 
 for (const mod of modules) {
@@ -28,12 +24,18 @@ for (const mod of modules) {
   }
 
   const seoText = mod.content.replace(/\[\[.*?\]\]/g, '').slice(0, 500) + '...';
+  const pageUrl = `${BASE_URL}/${mod.id}/`;
+  const pageTitle = `${mod.title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス`;
 
-  let modHtml = subDirTemplateHtml
-    .replace('<title>メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</title>', `<title>${mod.title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</title>`)
+  let modHtml = templateHtml
+    .replace('<title>メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</title>', `<title>${pageTitle}</title>`)
     .replace('<meta name="description" content="メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す学習リファレンス。ストレスの仕組み・セルフケア・対処法をわかりやすく解説。" />', `<meta name="description" content="${mod.description}" />`)
-    .replace('<meta property="og:title" content="メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />', `<meta property="og:title" content="${mod.title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />`)
-    .replace('<meta property="og:description" content="メンタルヘルスマネジメント検定Ⅲ種対策サイト。ストレス・セルフケア・メンタルヘルス不調をわかりやすく解説。" />', `<meta property="og:description" content="${mod.description}" />`);
+    .replace('<meta property="og:title" content="メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />', `<meta property="og:title" content="${pageTitle}" />`)
+    .replace('<meta property="og:description" content="メンタルヘルスマネジメント検定Ⅲ種対策サイト。ストレス・セルフケア・メンタルヘルス不調をわかりやすく解説。" />', `<meta property="og:description" content="${mod.description}" />`)
+    .replace(`<meta property="og:url" content="${BASE_URL}/" />`, `<meta property="og:url" content="${pageUrl}" />`)
+    .replace(`<link rel="canonical" href="${BASE_URL}/" />`, `<link rel="canonical" href="${pageUrl}" />`)
+    .replace('<meta name="twitter:title" content="メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />', `<meta name="twitter:title" content="${pageTitle}" />`)
+    .replace('<meta name="twitter:description" content="メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す学習リファレンス。ストレスの仕組み・セルフケア・対処法をわかりやすく解説。" />', `<meta name="twitter:description" content="${mod.description}" />`);
 
   const seoDataHtml = `<noscript id="seo-data">
     <h1>${mod.title}</h1>
@@ -46,31 +48,49 @@ for (const mod of modules) {
   generatedCount++;
 }
 
-const staticPages = ['glossary', 'privacy', 'about', 'guide'];
-for (const page of staticPages) {
+const staticPageConfigs: Record<string, { title: string; description: string }> = {
+  glossary: {
+    title: '用語集',
+    description: 'メンタルヘルスマネジメント検定Ⅲ種の頻出用語を一覧で解説。ストレス・セルフケア・4つのケア・ストレスチェック制度など試験に出る専門用語を網羅。'
+  },
+  guide: {
+    title: '試験ガイド',
+    description: 'メンタルヘルスマネジメント検定Ⅲ種の試験概要・出題範囲・学習の進め方を解説。合格基準・試験時間・推奨学習時間など受験に必要な情報をまとめました。'
+  },
+  about: {
+    title: 'サイトについて',
+    description: 'メンタルヘルスマネジメント検定Ⅲ種 学習リファレンスについて。サイトの目的・コンテンツ構成・利用方法を説明します。'
+  },
+  privacy: {
+    title: 'プライバシーポリシー',
+    description: 'メンタルヘルスマネジメント検定Ⅲ種 学習リファレンスのプライバシーポリシー。個人情報の取り扱いについて説明します。'
+  }
+};
+
+for (const [page, config] of Object.entries(staticPageConfigs)) {
   const pageDir = path.join(DIST_DIR, page);
   if (!fs.existsSync(pageDir)) {
     fs.mkdirSync(pageDir, { recursive: true });
   }
 
-  let title = '';
-  switch (page) {
-    case 'glossary': title = '用語集'; break;
-    case 'privacy': title = 'プライバシーポリシー'; break;
-    case 'about': title = 'サイトについて'; break;
-    case 'guide': title = '試験ガイド'; break;
-  }
+  const pageUrl = `${BASE_URL}/${page}/`;
+  const pageTitle = `${config.title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス`;
 
-  const modHtml = subDirTemplateHtml
-    .replace('<title>メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</title>', `<title>${title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</title>`)
-    .replace('<meta property="og:title" content="メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />', `<meta property="og:title" content="${title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />`);
+  const pageHtml = templateHtml
+    .replace('<title>メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</title>', `<title>${pageTitle}</title>`)
+    .replace('<meta name="description" content="メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す学習リファレンス。ストレスの仕組み・セルフケア・対処法をわかりやすく解説。" />', `<meta name="description" content="${config.description}" />`)
+    .replace('<meta property="og:title" content="メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />', `<meta property="og:title" content="${pageTitle}" />`)
+    .replace('<meta property="og:description" content="メンタルヘルスマネジメント検定Ⅲ種対策サイト。ストレス・セルフケア・メンタルヘルス不調をわかりやすく解説。" />', `<meta property="og:description" content="${config.description}" />`)
+    .replace(`<meta property="og:url" content="${BASE_URL}/" />`, `<meta property="og:url" content="${pageUrl}" />`)
+    .replace(`<link rel="canonical" href="${BASE_URL}/" />`, `<link rel="canonical" href="${pageUrl}" />`)
+    .replace('<meta name="twitter:title" content="メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス" />', `<meta name="twitter:title" content="${pageTitle}" />`)
+    .replace('<meta name="twitter:description" content="メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す学習リファレンス。ストレスの仕組み・セルフケア・対処法をわかりやすく解説。" />', `<meta name="twitter:description" content="${config.description}" />`);
 
-  fs.writeFileSync(path.join(pageDir, 'index.html'), modHtml);
+  fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
   generatedCount++;
 }
 
 // ── sitemap.xml の生成 ──────────────────────────────
-const BASE_URL = 'https://wamu1225.github.io/mhm-g3';
 const today = new Date().toISOString().split('T')[0];
 
 const moduleUrls = modules.map(m =>
