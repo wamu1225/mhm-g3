@@ -6,6 +6,23 @@ const DIST_DIR = path.resolve(process.cwd(), 'dist');
 const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
 const BASE_URL = 'https://wamu1225.github.io/mhm-g3';
 
+function stripMarkdown(text: string): string {
+  return text
+    .replace(/\[\[.*?\]\]/g, '')          // [[term:id]] / [[/term]] markers
+    .replace(/^#{1,6}\s+/gm, '')          // ## headings
+    .replace(/\*\*(.*?)\*\*/g, '$1')      // **bold**
+    .replace(/\*(.*?)\*/g, '$1')          // *italic*
+    .replace(/^[-*+]\s+/gm, '')           // - list items
+    .replace(/^\d+\.\s+/gm, '')           // 1. ordered lists
+    .replace(/^\|.*\|$/gm, '')            // | table rows |
+    .replace(/^[-|:\s]+$/gm, '')          // table separators
+    .replace(/^---+$/gm, '')              // --- hr
+    .replace(/[\u{1F300}-\u{1FFFF}]/gu, '') // emoji (surrogate range)
+    .replace(/[💡🎯⚠️✅❌🔴🟡🟢]/g, '')   // common emoji
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 console.log('--- Starting Static Site Generation (SSG) Pre-rendering ---');
 
 if (!fs.existsSync(INDEX_HTML_PATH)) {
@@ -23,7 +40,7 @@ for (const mod of modules) {
     fs.mkdirSync(modDir, { recursive: true });
   }
 
-  const seoText = mod.content.replace(/\[\[.*?\]\]/g, '').slice(0, 500) + '...';
+  const seoText = stripMarkdown(mod.content).slice(0, 400) + '...';
   const pageUrl = `${BASE_URL}/${mod.id}/`;
   const pageTitle = `${mod.title} | メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス`;
 
