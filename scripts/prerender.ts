@@ -4,7 +4,7 @@ import { modules } from '../src/data/modules';
 
 const DIST_DIR = path.resolve(process.cwd(), 'dist');
 const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
-const BASE_URL = 'https://wamu1225.github.io/mhm-g3';
+const BASE_URL = 'https://study-apps.com/mhm-g3';
 
 function stripMarkdown(text: string): string {
   return text
