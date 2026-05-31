@@ -157,6 +157,81 @@ export const ExamGuide: React.FC = () => (
     </section>
 
     <section style={{ marginBottom: '2.5rem' }}>
+      <h3><FileText size={18} style={{ display: 'inline', marginRight: '6px' }} />重要数値チートシート</h3>
+      <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>
+        試験では「数値の正確な暗記」が合否を分けます。以下の数値は確実に覚えてください。
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+          <thead>
+            <tr style={{ background: '#f8fafc', borderBottom: '2px solid #e2e8f0' }}>
+              <th style={{ padding: '0.75rem', textAlign: 'left' }}>数値</th>
+              <th style={{ padding: '0.75rem', textAlign: 'left' }}>内容</th>
+              <th style={{ padding: '0.75rem', textAlign: 'left' }}>根拠・補足</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#fffbeb' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>50人以上</td>
+              <td style={{ padding: '0.75rem' }}>ストレスチェック義務・産業医選任義務の規模基準</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>労働安全衛生法。50人未満は努力義務</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>年1回</td>
+              <td style={{ padding: '0.75rem' }}>ストレスチェックの実施頻度</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>50人以上の事業場に義務</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#fffbeb' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>2015年</td>
+              <td style={{ padding: '0.75rem' }}>ストレスチェック制度の施行年（平成27年12月）</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>労働安全衛生法改正</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>月80時間超</td>
+              <td style={{ padding: '0.75rem' }}>長時間労働者への医師面接指導が義務となる基準（本人申し出あり）</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>労安法第66条の8。ストレスチェック面接とは別制度</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#fffbeb' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>月100時間超</td>
+              <td style={{ padding: '0.75rem' }}>研究開発業務等で申し出なしに面接指導が義務となる基準</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>月80時間（申し出あり）との違いに注意</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>6時間以上</td>
+              <td style={{ padding: '0.75rem' }}>成人の睡眠時間の目安</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>厚生労働省の睡眠指針</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#fffbeb' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>3ヶ月以内</td>
+              <td style={{ padding: '0.75rem' }}>適応障害の発症目安（ストレッサー発生から）</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>ストレッサーの特定・除去で改善する傾向</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>2週間以上</td>
+              <td style={{ padding: '0.75rem' }}>専門家への相談を検討するストレスサインの持続期間目安</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>うつ病診断の参考期間でもある</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#fffbeb' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>57項目</td>
+              <td style={{ padding: '0.75rem' }}>職業性ストレス簡易調査票の標準版の項目数</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>短縮版は23項目。ストレスチェックで標準使用</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>2006年策定・2015年改正</td>
+              <td style={{ padding: '0.75rem' }}>「労働者の心の健康の保持増進のための指針」（4つのケアの根拠）</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>厚生労働省</td>
+            </tr>
+            <tr style={{ background: '#fffbeb' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>労働契約法第5条</td>
+              <td style={{ padding: '0.75rem' }}>安全配慮義務の根拠条文</td>
+              <td style={{ padding: '0.75rem', color: '#6b7280' }}>使用者（企業）の義務。違反で民事上の損害賠償責任</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style={{ marginBottom: '2.5rem' }}>
       <h3><FileText size={18} style={{ display: 'inline', marginRight: '6px' }} />合格後のステップアップ</h3>
       <p style={{ fontSize: '0.875rem' }}>
         Ⅲ種（セルフケアコース）の合格はメンタルヘルスの第一歩です。Ⅱ種（ラインケアコース）では部下・チームのメンタルヘルスマネジメントを、Ⅰ種（マスターコース）では企業全体の制度設計を学べます。ⅢとⅡは出題範囲が多く重複しているため、同時学習による相乗効果も期待できます。

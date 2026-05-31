@@ -162,4 +162,100 @@ export const glossary: Record<string, Term> = {
     scope: 'Ⅲ種',
     relatedTerms: ['stressor', 'cognitive-appraisal']
   },
+  'help-seeking': {
+    id: 'help-seeking',
+    term: '援助希求行動（えんじょきゅうこう）',
+    explanation: '困難な状況に置かれたとき、周囲や専門家に助けを求める行動のこと。「弱さの表れ」ではなく、セルフケアの重要なスキルとして位置づけられます。相談できる人がいること自体がストレスの緩衝材になります。産業医・EAP・精神保健福祉センターなど、適切な相談先を事前に知っておくことが援助希求行動を促します。',
+    level: '基礎',
+    scope: 'Ⅲ種',
+    relatedTerms: ['self-care', 'eap', 'industrial-physician']
+  },
+  'social-support': {
+    id: 'social-support',
+    term: 'ソーシャルサポート（社会的支援）',
+    explanation: '周囲の人々からの支援のこと。①情報的サポート（アドバイス）、②情動的サポート（共感・傾聴）、③道具的サポート（実際の手助け）、④評価的サポート（承認・フィードバック）の4種類に分けられます。ソーシャルサポートが豊富な人は、同じストレッサーを受けてもストレス反応が軽減される「緩衝効果」があることが研究で示されています。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['coping', 'help-seeking', 'stress-response']
+  },
+  'duty-of-care': {
+    id: 'duty-of-care',
+    term: '安全配慮義務',
+    explanation: '労働契約法第5条に定められた、使用者（企業）が労働者の生命・身体・健康を守るために必要な配慮をする義務のこと。身体的な安全だけでなくメンタルヘルスも対象となります。違反した場合は民事上の損害賠償責任が生じます。ストレスチェック制度の実施・長時間労働対策・職場環境改善はこの義務の履行にあたります。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['self-health-duty', 'stress-check']
+  },
+  'self-health-duty': {
+    id: 'self-health-duty',
+    term: '自己保健義務',
+    explanation: '労働者自身が自らの健康を維持・管理する義務のこと。労働契約の信義則から導かれる概念です。安全配慮義務（企業側）と対となる義務として試験頻出です。セルフケアは「労働者の自己保健義務の実践」であり、単なる努力目標ではなく法的根拠のある取り組みです。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['duty-of-care', 'self-care']
+  },
+  'presenteeism': {
+    id: 'presenteeism',
+    term: 'プレゼンティーイズム',
+    explanation: '出勤しているにもかかわらず、健康問題（身体的・精神的）により生産性が低下している状態のこと。欠勤は目に見えるが、プレゼンティーイズムは「見えない損失」として企業に大きな経済的コストをもたらします。アブセンティーイズム（欠勤）と対で覚えましょう。',
+    level: '基礎',
+    scope: 'Ⅲ種',
+    relatedTerms: ['absenteeism']
+  },
+  'absenteeism': {
+    id: 'absenteeism',
+    term: 'アブセンティーイズム',
+    explanation: '健康問題（身体的・精神的）による欠勤のこと。プレゼンティーイズム（出勤しているが生産性低下）と並んで、企業の労働損失を示す指標として用いられます。どちらも職場のメンタルヘルス問題が企業に与えるコストの具体的な形です。',
+    level: '基礎',
+    scope: 'Ⅲ種',
+    relatedTerms: ['presenteeism']
+  },
+  'panic-disorder': {
+    id: 'panic-disorder',
+    term: 'パニック障害',
+    explanation: '突然の強烈な恐怖発作（パニック発作）が繰り返される不安障害の一つ。発作中は動悸・呼吸困難・死の恐怖などを感じます。「また発作が起きるのではないか」という予期不安から、特定の場所を避けるようになることも。適切な治療で回復可能な病気です。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['depression', 'adjustment-disorder']
+  },
+  'schizophrenia': {
+    id: 'schizophrenia',
+    term: '統合失調症',
+    explanation: '思考・知覚・感情・行動の統合が乱れる精神疾患。幻覚（特に幻声）・妄想・思考の障害が主な症状です。職場では突然の言動の急変として気づかれることがあります。早期発見・専門機関への受診が重要です。うつ病・適応障害・バーンアウトとの症状の違いを整理しておきましょう。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['depression', 'adjustment-disorder']
+  },
+  'psychological-detachment': {
+    id: 'psychological-detachment',
+    term: '心理的デタッチメント',
+    explanation: '休日や休暇中に仕事のことを心理的に切り離し、完全にオフの状態にすること。疲労回復に不可欠なセルフケアの習慣です。「仕事のメールをチェックしてしまう」習慣があると、身体は休んでいても心は仕事モードのままになり、疲労が回復しません。ワーク・ライフ・バランスの実践の一つです。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['self-care', 'coping']
+  },
+  'prevention-levels': {
+    id: 'prevention-levels',
+    term: '一次予防・二次予防・三次予防',
+    explanation: 'メンタルヘルス対策を介入のタイミングで分類した3段階。①一次予防：発症を防ぐ（ストレス軽減・職場環境改善・教育研修）。②二次予防：早期発見・早期対処（ストレスチェック・面接指導・早期受診）。③三次予防：再発防止・職場復帰（復職支援プログラム・職場環境の調整）。Ⅲ種のセルフケアは主に一次・二次予防の観点から取り組みます。',
+    level: '中級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['stress-check', 'self-care']
+  },
+  'jdc-model': {
+    id: 'jdc-model',
+    term: 'JDCモデル（仕事の要求度-コントロール-サポートモデル）',
+    explanation: 'Karasekらが提唱した職業性ストレスモデル。仕事の「要求度（Job Demands）」「コントロール（Control）」「サポート（Support）」の3要素でストレスの高さを説明します。「要求度が高く・コントロールが低く・サポートが少ない」状態が最もストレスが高いとされています。職業性ストレス簡易調査票はこのモデルに基づいています。',
+    level: '上級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['stressor', 'stress-check', 'occupational-stress-scale']
+  },
+  'occupational-stress-scale': {
+    id: 'occupational-stress-scale',
+    term: '職業性ストレス簡易調査票',
+    explanation: '職場のストレス要因・ストレス反応・周囲のサポートを57項目（短縮版は23項目）で自己評価するツール。ストレスチェック制度で標準的に使用されています。JDCモデルの考え方をベースに開発された日本の自己評価ツールです。',
+    level: '上級',
+    scope: 'Ⅲ種',
+    relatedTerms: ['stress-check', 'jdc-model']
+  },
 };

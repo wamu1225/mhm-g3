@@ -282,8 +282,8 @@ function App() {
     <div className="container" style={{ maxWidth: activeModuleId ? '800px' : view === 'glossary' ? '1000px' : '800px' }}>
       <header className="header">
         <h1 className="title" onClick={() => updateModuleId(null)} style={{ cursor: 'pointer' }}>メンタルヘルスマネジメント検定 Ⅲ種</h1>
-        <p className="subtitle">学習リファレンス</p>
-        <p style={{ margin: '0.25rem 0 0', fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center' }}>全{modules.length}モジュール・クイズで合格をサポート</p>
+        <p className="subtitle">セルフケアコース 学習リファレンス</p>
+        <p style={{ margin: '0.25rem 0 0', fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center' }}>全{modules.length}モジュール・{modules.reduce((s, m) => s + m.quiz.length, 0)}問クイズ・用語集で合格をサポート</p>
       </header>
 
       {!activeModuleId && (
@@ -612,7 +612,7 @@ function App() {
 
       <footer className="site-footer">
         <p className="footer-disclaimer">
-          本サイトは大阪商工会議所の公式サイトではありません。試験情報は必ず公式サイトをご確認ください。
+          本サイトは個人による学習支援サイトであり、大阪商工会議所の公式サイトではありません。掲載内容は個人の見解に基づくものであり、公式の情報を保証するものではありません。
         </p>
         <div className="footer-links">
           <button className="footer-link" onClick={() => switchView('about')}>サイトについて</button>
