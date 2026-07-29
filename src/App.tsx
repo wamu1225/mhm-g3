@@ -166,7 +166,7 @@ function App() {
 
   const parseInlineContent = useCallback((text: string): React.ReactNode => {
     function parseInline(t: string): React.ReactNode {
-      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\])/g;
+      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\])/g;
       const parts = t.split(regex);
       return (
         <>
@@ -179,6 +179,35 @@ function App() {
               const contentMatch = part.match(/\]\]([\s\S]*?)\[\[\/term\]\]/);
               if (idMatch && contentMatch) return <TermText key={key} termId={idMatch[1]} onNavigate={updateModuleId} renderText={parseInline}>{contentMatch[1]}</TermText>;
             }
+            if (part === '[[care-layers]]') return (
+              <figure key={key} className="mhm-figure">
+                <div className="care-layers" role="img" aria-label="4つのケアの内外関係：セルフケア（本人）を中心に、ラインケア、事業場内産業保健スタッフ、事業場外資源へと層が広がる図">
+                  <div className="care-layer care-layer-4">
+                    <span className="care-layer-tag">事業場外</span>
+                    <span className="care-layer-name">④ 事業場外資源によるケア</span>
+                    <span className="care-layer-sub">EAP・精神保健福祉センター等（匿名性が高い）</span>
+                    <div className="care-layer care-layer-3">
+                      <span className="care-layer-tag">事業場内</span>
+                      <span className="care-layer-name">③ 事業場内産業保健スタッフ等によるケア</span>
+                      <span className="care-layer-sub">産業医・保健師・人事労務担当者</span>
+                      <div className="care-layer care-layer-2">
+                        <span className="care-layer-tag">職場</span>
+                        <span className="care-layer-name">② ラインによるケア</span>
+                        <span className="care-layer-sub">管理監督者（直属の上司）</span>
+                        <div className="care-layer care-layer-1">
+                          <span className="care-layer-tag">本人</span>
+                          <span className="care-layer-name">① セルフケア</span>
+                          <span className="care-layer-sub">労働者自身</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <figcaption className="mhm-fig-cap">
+                  「4つのケア」は並列の4項目ではなく、<strong>労働者本人を中心に、内側から外側へ層をなす</strong>関係にある。①セルフケア（本人）→②ラインによるケア（直属の上司）→③事業場内産業保健スタッフ（産業医・保健師）→④事業場外資源（EAP等）の順で、外側に行くほど専門性・匿名性が高まる。内側の層で対応しきれない場合に、外側の層へつなぐ（早期発見・早期対応の連携）。
+                </figcaption>
+              </figure>
+            );
             return <span key={key} style={{ whiteSpace: 'pre-wrap' }}>{part}</span>;
           })}
         </>

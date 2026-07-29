@@ -340,6 +340,72 @@
   margin: 2rem 0;
 }
 
+.mhm-figure {
+  margin: 1.25rem 0;
+}
+.mhm-fig-cap {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  text-align: left;
+}
+
+.care-layers {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.care-layer {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+}
+.care-layer-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+.care-layer-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-top: 0.15rem;
+}
+.care-layer-sub {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin-top: 0.15rem;
+}
+.care-layer-4 {
+  background: #eaf4ff;
+  padding: 1.1rem 0.9rem 0.9rem;
+}
+.care-layer-3 {
+  background: #cfe6ff;
+  padding: 1rem 0.8rem 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+}
+.care-layer-2 {
+  background: #9ecbfb;
+  padding: 0.9rem 0.75rem 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+}
+.care-layer-1 {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 0.85rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+.care-layer-1 .care-layer-tag,
+.care-layer-1 .care-layer-sub {
+  opacity: 0.85;
+}
+
 /* ── Chapter & Module ────────────────────────────── */
 
 .module-desc {
