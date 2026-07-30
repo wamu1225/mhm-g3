@@ -166,7 +166,7 @@ function App() {
 
   const parseInlineContent = useCallback((text: string): React.ReactNode => {
     function parseInline(t: string): React.ReactNode {
-      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\])/g;
+      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\])/g;
       const parts = t.split(regex);
       return (
         <>
@@ -205,6 +205,47 @@ function App() {
                 </div>
                 <figcaption className="mhm-fig-cap">
                   「4つのケア」は並列の4項目ではなく、<strong>労働者本人を中心に、内側から外側へ層をなす</strong>関係にある。①セルフケア（本人）→②ラインによるケア（直属の上司）→③事業場内産業保健スタッフ（産業医・保健師）→④事業場外資源（EAP等）の順で、外側に行くほど専門性・匿名性が高まる。内側の層で対応しきれない場合に、外側の層へつなぐ（早期発見・早期対応の連携）。
+                </figcaption>
+              </figure>
+            );
+            if (part === '[[reintegration-flow]]') return (
+              <figure key={key} className="mhm-figure">
+                <svg viewBox="0 0 340 380" role="img" aria-label="職場復帰支援の5ステップの流れ：第1ステップ病気休業開始から第5ステップ職場復帰後のフォローアップまで" className="mhm-fig-svg">
+                  <rect x="20" y="10" width="300" height="52" rx="8" fill="var(--primary-light)" stroke="var(--primary)" strokeWidth={1.6} />
+                  <text x="170" y="28" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--primary-text)">第1ステップ</text>
+                  <text x="170" y="46" textAnchor="middle" fontSize={10.5} fontWeight={700} fill="var(--text)">病気休業開始及び休業中のケア</text>
+
+                  <line x1={170} y1={62} x2={170} y2={80} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,84 165,76 175,76" fill="#94a3b8" />
+
+                  <rect x="20" y="84" width="300" height="52" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="170" y="102" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text-muted)">第2ステップ</text>
+                  <text x="170" y="120" textAnchor="middle" fontSize={10.5} fontWeight={700} fill="var(--text)">主治医による職場復帰可能の判断</text>
+
+                  <line x1={170} y1={136} x2={170} y2={154} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,158 165,150 175,150" fill="#94a3b8" />
+
+                  <rect x="20" y="158" width="300" height="64" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="170" y="176" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text-muted)">第3ステップ</text>
+                  <text x="170" y="194" textAnchor="middle" fontSize={10} fontWeight={700} fill="var(--text)">職場復帰の可否の判断及び</text>
+                  <text x="170" y="209" textAnchor="middle" fontSize={10} fontWeight={700} fill="var(--text)">職場復帰支援プランの作成</text>
+
+                  <line x1={170} y1={222} x2={170} y2={240} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,244 165,236 175,236" fill="#94a3b8" />
+
+                  <rect x="20" y="244" width="300" height="52" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="170" y="262" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text-muted)">第4ステップ</text>
+                  <text x="170" y="280" textAnchor="middle" fontSize={10.5} fontWeight={700} fill="var(--text)">最終的な職場復帰の決定</text>
+
+                  <line x1={170} y1={296} x2={170} y2={314} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,318 165,310 175,310" fill="#94a3b8" />
+
+                  <rect x="20" y="318" width="300" height="52" rx="8" fill="var(--primary-light)" stroke="var(--primary)" strokeWidth={1.6} />
+                  <text x="170" y="336" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--primary-text)">第5ステップ</text>
+                  <text x="170" y="354" textAnchor="middle" fontSize={10.5} fontWeight={700} fill="var(--text)">職場復帰後のフォローアップ</text>
+                </svg>
+                <figcaption className="mhm-fig-cap">
+                  職場復帰支援は、厚生労働省の手引きが定める<strong>第1〜第5ステップ</strong>を段階的にたどる。第1ステップ（休業開始・休業中のケア）と第2ステップ（主治医の職場復帰可能の判断）を経て、第3ステップで産業医・事業者・人事が連携して<strong>職場復帰の可否の判断と支援プランの作成</strong>を行う。第4ステップで事業者が最終決定し、復帰後も第5ステップとしてフォローアップが続く。「主治医の判断＝即復帰」ではなく、第3・第4ステップの手続きを経ることが試験の要点。
                 </figcaption>
               </figure>
             );

@@ -350,6 +350,13 @@
   margin-top: 0.75rem;
   text-align: left;
 }
+.mhm-fig-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 .care-layers {
   border-radius: 16px;
