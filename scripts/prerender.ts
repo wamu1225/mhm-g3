@@ -13,6 +13,36 @@ const BASE = '/mhm-g3';
 const escHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const inlineHtml = (s: string) => escHtml(s.replace(/\[\[term:.*?\]\]|\[\[\/term\]\]|\[\[.*?\]\]/g, '')).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
+// App.tsx内のJSX図（[[key]]でReact専用に描画されるSVG/CSS図）を静的HTMLでも表示する（2026-07-30・O-2-6続報）。
+// これまで行ごと除去していたため静的HTMLに図が1つも無かった。App.tsxの構造をそのまま複製し、既存CSSを共有する。
+const FIGURES: Record<string, string> = {
+  'care-layers': `<figure class="mhm-figure">
+  <div class="care-layers" role="img" aria-label="4つのケアの内外関係：セルフケア（本人）を中心に、ラインケア、事業場内産業保健スタッフ、事業場外資源へと層が広がる図">
+    <div class="care-layer care-layer-4">
+      <span class="care-layer-tag">事業場外</span>
+      <span class="care-layer-name">④ 事業場外資源によるケア</span>
+      <span class="care-layer-sub">EAP・精神保健福祉センター等（匿名性が高い）</span>
+      <div class="care-layer care-layer-3">
+        <span class="care-layer-tag">事業場内</span>
+        <span class="care-layer-name">③ 事業場内産業保健スタッフ等によるケア</span>
+        <span class="care-layer-sub">産業医・保健師・人事労務担当者</span>
+        <div class="care-layer care-layer-2">
+          <span class="care-layer-tag">職場</span>
+          <span class="care-layer-name">② ラインによるケア</span>
+          <span class="care-layer-sub">管理監督者（直属の上司）</span>
+          <div class="care-layer care-layer-1">
+            <span class="care-layer-tag">本人</span>
+            <span class="care-layer-name">① セルフケア</span>
+            <span class="care-layer-sub">労働者自身</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <figcaption class="mhm-fig-cap">「4つのケア」は並列の4項目ではなく、<strong>労働者本人を中心に、内側から外側へ層をなす</strong>関係にある。①セルフケア（本人）→②ラインによるケア（直属の上司）→③事業場内産業保健スタッフ（産業医・保健師）→④事業場外資源（EAP等）の順で、外側に行くほど専門性・匿名性が高まる。内側の層で対応しきれない場合に、外側の層へつなぐ（早期発見・早期対応の連携）。</figcaption>
+</figure>`,
+};
+
 // 表・見出し・リストを静的HTMLへ変換（旧stripMarkdownは表を丸ごと削除していたため新設。
 // 本サイトはApp.tsx側にコールアウト専用スタイルが無いため💡⚠️等は地の文としてそのまま出す）
 function mdToHtml(content: string): string {
@@ -21,6 +51,8 @@ function mdToHtml(content: string): string {
   let i = 0;
   while (i < lines.length) {
     const t = lines[i].trim();
+    const figKey = t.match(/^\[\[([a-z0-9-]+)\]\]$/);
+    if (figKey && FIGURES[figKey[1]]) { out.push(FIGURES[figKey[1]]); i++; continue; }
     if (t === '' || /^\[\[.*?\]\]$/.test(t)) { i++; continue; }
     if (/^---+$/.test(t)) { out.push('<hr style="border:0;border-top:1px solid #ddd;margin:18px 0">'); i++; continue; }
     if (t.startsWith('#### ')) { out.push(`<h4 style="font-size:1rem;margin:16px 0 6px">${inlineHtml(t.slice(5))}</h4>`); i++; continue; }
