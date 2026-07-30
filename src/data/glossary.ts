@@ -244,8 +244,8 @@ export const glossary: Record<string, Term> = {
   },
   'jdc-model': {
     id: 'jdc-model',
-    term: 'JDCモデル（仕事の要求度-コントロール-サポートモデル）',
-    explanation: 'Karasekらが提唱した職業性ストレスモデル。仕事の「要求度（Job Demands）」「コントロール（Control）」「サポート（Support）」の3要素でストレスの高さを説明します。「要求度が高く・コントロールが低く・サポートが少ない」状態が最もストレスが高いとされています。職業性ストレス簡易調査票はこのモデルに基づいています。',
+    term: 'JDCモデル／JDCSモデル（仕事の要求度-コントロール-サポートモデル）',
+    explanation: 'Karasekが提唱したJDCモデルは、仕事の「要求度（Job Demands）」と「コントロール（Control）」の**2要素**でストレスの高さを説明します。これにJohnson & Hallが「サポート（Support）」を加えた**3要素版がJDCSモデル**という別名称のモデルです。「要求度が高く・コントロールが低く・サポートが少ない」状態が最もストレスが高いとされるのはJDCSモデルの説明です。職業性ストレス簡易調査票はJDCSモデルの考え方をベースにしています。',
     level: '上級',
     scope: 'Ⅲ種',
     relatedTerms: ['stressor', 'stress-check', 'occupational-stress-scale']
@@ -253,7 +253,7 @@ export const glossary: Record<string, Term> = {
   'occupational-stress-scale': {
     id: 'occupational-stress-scale',
     term: '職業性ストレス簡易調査票',
-    explanation: '職場のストレス要因・ストレス反応・周囲のサポートを57項目（短縮版は23項目）で自己評価するツール。ストレスチェック制度で標準的に使用されています。JDCモデルの考え方をベースに開発された日本の自己評価ツールです。',
+    explanation: '職場のストレス要因・ストレス反応・周囲のサポートを57項目（短縮版は23項目）で自己評価するツール。ストレスチェック制度で標準的に使用されています。JDCSモデル（要求度・コントロール・サポートの3要素モデル）の考え方をベースに開発された日本の自己評価ツールです。',
     level: '上級',
     scope: 'Ⅲ種',
     relatedTerms: ['stress-check', 'jdc-model']
