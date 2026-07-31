@@ -166,7 +166,7 @@ function App() {
 
   const parseInlineContent = useCallback((text: string): React.ReactNode => {
     function parseInline(t: string): React.ReactNode {
-      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\])/g;
+      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\]|\[\[stress-cognitive-flow\]\])/g;
       const parts = t.split(regex);
       return (
         <>
@@ -246,6 +246,43 @@ function App() {
                 </svg>
                 <figcaption className="mhm-fig-cap">
                   職場復帰支援は、厚生労働省の手引きが定める<strong>第1〜第5ステップ</strong>を段階的にたどる。第1ステップ（休業開始・休業中のケア）と第2ステップ（主治医の職場復帰可能の判断）を経て、第3ステップで産業医・事業者・人事が連携して<strong>職場復帰の可否の判断と支援プランの作成</strong>を行う。第4ステップで事業者が最終決定し、復帰後も第5ステップとしてフォローアップが続く。「主治医の判断＝即復帰」ではなく、第3・第4ステップの手続きを経ることが試験の要点。
+                </figcaption>
+              </figure>
+            );
+            if (part === '[[stress-cognitive-flow]]') return (
+              <figure key={key} className="mhm-figure">
+                <svg viewBox="0 0 340 250" role="img" aria-label="ストレス発生のプロセス：ストレッサーが認知的評価を経てストレス反応につながり、評価の違いが個人差を生む" className="mhm-fig-svg">
+                  <rect x="95" y="10" width="150" height="44" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="170" y="30" textAnchor="middle" fontSize={12.5} fontWeight={700} fill="var(--text)">ストレッサー</text>
+                  <text x="170" y="45" textAnchor="middle" fontSize={8} fill="var(--text-muted)">（原因となる外部の刺激）</text>
+
+                  <line x1={170} y1={54} x2={170} y2={72} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,76 165,68 175,68" fill="#94a3b8" />
+
+                  <rect x="60" y="76" width="220" height="60" rx="8" fill="var(--primary-light)" stroke="var(--primary)" strokeWidth={1.6} />
+                  <text x="170" y="96" textAnchor="middle" fontSize={12.5} fontWeight={700} fill="var(--primary-text)">認知的評価</text>
+                  <text x="170" y="112" textAnchor="middle" fontSize={8} fill="var(--text-muted)">「これは脅威になるか？」</text>
+                  <text x="170" y="125" textAnchor="middle" fontSize={8} fill="var(--text-muted)">「対処できる資源があるか？」</text>
+
+                  <line x1={170} y1={136} x2={170} y2={150} stroke="#94a3b8" strokeWidth={1.6} />
+                  <line x1={90} y1={150} x2={250} y2={150} stroke="#94a3b8" strokeWidth={1.6} />
+                  <line x1={90} y1={150} x2={90} y2={166} stroke="#94a3b8" strokeWidth={1.6} />
+                  <line x1={250} y1={150} x2={250} y2={166} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="90,170 85,162 95,162" fill="#94a3b8" />
+                  <polygon points="250,170 245,162 255,162" fill="#94a3b8" />
+
+                  <rect x="15" y="170" width="150" height="62" rx="8" fill="var(--accent)" fillOpacity="0.12" stroke="var(--accent)" strokeWidth={1.4} />
+                  <text x="90" y="190" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text)">脅威と評価</text>
+                  <text x="90" y="205" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--accent)">ストレス反応：強い</text>
+                  <text x="90" y="219" textAnchor="middle" fontSize={7.5} fill="var(--text-muted)">（本文のBさんタイプ）</text>
+
+                  <rect x="175" y="170" width="150" height="62" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="250" y="190" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text)">対処可能と評価</text>
+                  <text x="250" y="205" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text)">ストレス反応：弱い</text>
+                  <text x="250" y="219" textAnchor="middle" fontSize={7.5} fill="var(--text-muted)">（本文のAさんタイプ）</text>
+                </svg>
+                <figcaption className="mhm-fig-cap">
+                  同じ<strong>ストレッサー</strong>（原因）を受けても、ストレス反応の強さは人によって異なる。この差を生むのが<strong>認知的評価</strong>——「これは自分にとって脅威か」「対処できる資源があるか」という受け取り方である。強い脅威と評価すればストレス反応は強くなり（本文のBさん）、対処可能と捉えれば反応は弱く済む（Aさん）。ストレッサーの強さそのものより、認知的評価の違いが個人差の正体。
                 </figcaption>
               </figure>
             );
