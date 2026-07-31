@@ -166,7 +166,7 @@ function App() {
 
   const parseInlineContent = useCallback((text: string): React.ReactNode => {
     function parseInline(t: string): React.ReactNode {
-      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\]|\[\[stress-cognitive-flow\]\])/g;
+      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\]|\[\[stress-cognitive-flow\]\]|\[\[stress-check-flow\]\])/g;
       const parts = t.split(regex);
       return (
         <>
@@ -283,6 +283,43 @@ function App() {
                 </svg>
                 <figcaption className="mhm-fig-cap">
                   同じ<strong>ストレッサー</strong>（原因）を受けても、ストレス反応の強さは人によって異なる。この差を生むのが<strong>認知的評価</strong>——「これは自分にとって脅威か」「対処できる資源があるか」という受け取り方である。強い脅威と評価すればストレス反応は強くなり（本文のBさん）、対処可能と捉えれば反応は弱く済む（Aさん）。ストレッサーの強さそのものより、認知的評価の違いが個人差の正体。
+                </figcaption>
+              </figure>
+            );
+            if (part === '[[stress-check-flow]]') return (
+              <figure key={key} className="mhm-figure">
+                <svg viewBox="0 0 340 260" role="img" aria-label="ストレスチェック実施の流れ：実施から結果通知、本人の同意を経て初めて事業者に結果が伝わる分岐" className="mhm-fig-svg">
+                  <rect x="95" y="10" width="150" height="46" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="170" y="30" textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text)">ストレスチェック実施</text>
+                  <text x="170" y="46" textAnchor="middle" fontSize={7.5} fill="var(--text-muted)">（年1回・医師/保健師等が実施）</text>
+
+                  <line x1={170} y1={56} x2={170} y2={74} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,78 165,70 175,70" fill="#94a3b8" />
+
+                  <rect x="60" y="78" width="220" height="42" rx="8" fill="var(--primary-light)" stroke="var(--primary)" strokeWidth={1.6} />
+                  <text x="170" y="103" textAnchor="middle" fontSize={12} fontWeight={700} fill="var(--primary-text)">結果を本人に直接通知</text>
+
+                  <line x1={170} y1={120} x2={170} y2={136} stroke="#94a3b8" strokeWidth={1.6} />
+                  <line x1={90} y1={136} x2={250} y2={136} stroke="#94a3b8" strokeWidth={1.6} />
+                  <line x1={90} y1={136} x2={90} y2={152} stroke="#94a3b8" strokeWidth={1.6} />
+                  <line x1={250} y1={136} x2={250} y2={152} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="90,156 85,148 95,148" fill="#94a3b8" />
+                  <polygon points="250,156 245,148 255,148" fill="#94a3b8" />
+
+                  <rect x="15" y="156" width="150" height="72" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="90" y="176" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text)">本人が同意しない</text>
+                  <text x="90" y="192" textAnchor="middle" fontSize={8} fill="var(--text-muted)">事業者には結果が</text>
+                  <text x="90" y="204" textAnchor="middle" fontSize={8} fill="var(--text-muted)">伝わらない</text>
+                  <text x="90" y="218" textAnchor="middle" fontSize={7} fill="var(--text-muted)">（ここで終了）</text>
+
+                  <rect x="175" y="156" width="150" height="72" rx="8" fill="var(--accent)" fillOpacity="0.12" stroke="var(--accent)" strokeWidth={1.4} />
+                  <text x="250" y="176" textAnchor="middle" fontSize={9.5} fontWeight={700} fill="var(--text)">本人が同意する</text>
+                  <text x="250" y="192" textAnchor="middle" fontSize={8} fill="var(--text-muted)">事業者に結果提供</text>
+                  <text x="250" y="204" textAnchor="middle" fontSize={8} fontWeight={700} fill="var(--accent)">高ストレス者は</text>
+                  <text x="250" y="216" textAnchor="middle" fontSize={8} fontWeight={700} fill="var(--accent)">面接指導を申出可</text>
+                </svg>
+                <figcaption className="mhm-fig-cap">
+                  ストレスチェックは年1回、医師・保健師等が実施し、結果は<strong>まず本人に直接通知</strong>される。事業者が結果を知るには<strong>本人の同意</strong>が必要で、同意しなければ高ストレスであってもその事実は事業者に伝わらない（左）。同意した場合に限り事業者は結果を把握でき、高ストレス者本人が希望すれば医師による面接指導を実施する（右）。「本人の同意」が事業者への情報伝達の唯一の入り口であることが、この制度のプライバシー保護の核心。
                 </figcaption>
               </figure>
             );
