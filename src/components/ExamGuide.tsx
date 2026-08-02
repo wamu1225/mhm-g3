@@ -56,8 +56,8 @@ export const ExamGuide: React.FC = () => (
             </tr>
             <tr>
               <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>合格率</td>
-              <td style={{ padding: '0.75rem' }}>約70〜80%</td>
-              <td style={{ padding: '0.75rem' }}>2024年度は約74%（体系的学習で合格可能）</td>
+              <td style={{ padding: '0.75rem' }}>約65〜78%（回により変動）</td>
+              <td style={{ padding: '0.75rem' }}>直近5回（2024年3月〜2026年3月）の実測：69.7%・65.1%・77.8%・74.3%・72.1%</td>
             </tr>
           </tbody>
         </table>
@@ -67,7 +67,7 @@ export const ExamGuide: React.FC = () => (
     <section style={{ marginBottom: '2.5rem' }}>
       <h3><BookOpen size={18} style={{ display: 'inline', marginRight: '6px' }} />出題範囲と重要なポイント</h3>
       <div style={{ fontSize: '0.875rem' }}>
-        <p>試験問題は大阪商工会議所発行の公式テキスト（現行第5版）から高い割合で出題されます。「なぜその選択肢が正しいか説明できる」レベルまで理解を深めることが重要です。</p>
+        <p>試験問題は大阪商工会議所発行の公式テキスト（現行第6版・2026年6月発行）から高い割合で出題されます。「なぜその選択肢が正しいか説明できる」レベルまで理解を深めることが重要です。</p>
 
         <h4 style={{ color: 'var(--primary)', marginTop: '1.5rem', marginBottom: '0.5rem' }}>① メンタルヘルスケアの意義</h4>
         <p style={{ marginBottom: '1rem' }}>

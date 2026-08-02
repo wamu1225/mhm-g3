@@ -6,6 +6,6 @@ export const EXAM_CONFIG = {
   questionCount: '50問',              // 出題数
   passingScore: 70,                   // 合格基準（点）
   passingScoreLabel: '100点満点中70点以上',
-  format: 'マークシート方式（4択）',
-  schedule: '年2回（3月・11月）',
+  format: 'マークシート方式（選択問題）',
+  schedule: '年2回（11月・3月）',
 } as const;
