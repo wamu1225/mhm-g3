@@ -42,7 +42,7 @@
 .nav-tab {
   background: none;
   border: none;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.85rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -50,20 +50,19 @@
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--text-muted);
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
+  border-radius: var(--radius-pill);
+  transition: color 0.15s, background-color 0.15s;
   font-family: 'Inter', sans-serif;
 }
 
 .nav-tab:hover {
   color: var(--text);
   background: var(--bg-hover);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .nav-tab.active {
-  color: var(--text);
-  border-bottom: 2px solid var(--primary);
+  color: var(--primary-text);
+  background: var(--primary-light);
 }
 
 .nav-progress-badge {
