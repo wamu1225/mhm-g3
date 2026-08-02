@@ -433,9 +433,16 @@ for (const [page, config] of Object.entries(staticPageContents)) {
   pageHtml = pageHtml.replace('</head>', `${robotsMeta}\n  </head>`);
   pageHtml = pageHtml.replace('<div id="root"></div>', `<div id="root">${config.bodyHtml}</div>`);
 
-  if (config.jsonLd) {
-    pageHtml = pageHtml.replace('</head>', `<script type="application/ld+json">${JSON.stringify(config.jsonLd)}</script>\n  </head>`);
-  }
+  const pageJsonLd = config.jsonLd ?? {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: config.title,
+    description: config.description,
+    url: pageUrl,
+    inLanguage: 'ja',
+    isPartOf: { '@type': 'WebSite', name: 'メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス', url: `${BASE_URL}/` },
+  };
+  pageHtml = pageHtml.replace('</head>', `<script type="application/ld+json">${JSON.stringify(pageJsonLd)}</script>\n  </head>`);
 
   fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
   generatedCount++;
