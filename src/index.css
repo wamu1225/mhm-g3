@@ -1,31 +1,31 @@
-/* mhm-g3/src/index.css — Notion Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+/* mhm-g3/src/index.css — セルフケアの歩み（穏やかな回遊デザイン） */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Kosugi+Maru&display=swap');
 
 :root {
-  /* Notion Brand */
-  --primary: #0075de;
-  --primary-hover: #005bab;
-  --primary-light: #f2f9ff;
-  --primary-text: #097fe8;
+  /* Primary — セージティール（心を落ち着ける色。法務検定の紺・統計検定の青緑とは別軸） */
+  --primary: #3a8073;
+  --primary-hover: #2c6459;
+  --primary-light: #e7f3f0;
+  --primary-text: #235c50;
 
-  /* Backgrounds — warm neutrals */
+  /* Backgrounds — 温かみのあるクリーム */
   --bg: #ffffff;
-  --bg-warm: #f6f5f4;
-  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-warm: #f6f6f2;
+  --bg-hover: rgba(58, 128, 115, 0.06);
   --card-bg: #ffffff;
 
-  /* Text — warm near-black */
+  /* Text — 温かみのある黒 */
   --text: rgba(0, 0, 0, 0.95);
   --text-body: rgba(0, 0, 0, 0.95);
   --text-muted: #615d59;
   --text-placeholder: #a39e98;
 
-  /* Borders — whisper-weight */
+  /* Borders — 極細 */
   --border: rgba(0, 0, 0, 0.1);
   --border-medium: rgba(0, 0, 0, 0.15);
   --border-solid: #e8e7e5;
 
-  /* Shadows — multi-layer barely-there */
+  /* Shadows — 多層のかすかな影 */
   --shadow-card: rgba(0,0,0,0.04) 0px 4px 18px,
                  rgba(0,0,0,0.027) 0px 2px 7.8px,
                  rgba(0,0,0,0.02) 0px 0.8px 2.9px,
@@ -38,10 +38,13 @@
   --radius-pill: 9999px;
   --radius-sm: 4px;
 
-  /* Semantic */
-  --accent: #dd5b00;
+  /* Semantic — テラコッタ（強調・注意。ティールと補色でよく効く） */
+  --accent: #c96a3e;
   --success: #1aae39;
   --success-bg: #f0fdf4;
+
+  /* Typography — 見出しは丸ゴシックで柔らかく、本文は可読性優先のNoto Sans JP */
+  --font-heading: 'Kosugi Maru', 'Noto Sans JP', sans-serif;
 }
 
 body {
