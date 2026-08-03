@@ -104,17 +104,19 @@
 
 .card-module {
   background: var(--card-bg);
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 1.1rem;
   border-radius: var(--radius-card);
   margin-bottom: 0.75rem;
   cursor: pointer;
   border: 1px solid var(--border);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  border-left: 3px solid var(--border-medium);
+  transition: border-left-color 0.15s, transform 0.15s, box-shadow 0.15s;
 }
 
 .card-module:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px var(--primary-light);
+  border-left-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
 }
 
 /* ── Buttons ─────────────────────────────────────── */
