@@ -418,6 +418,41 @@
   opacity: 0.85;
 }
 
+.stress-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+.stress-type-col {
+  border-radius: 12px;
+  padding: 0.85rem 0.75rem;
+  border: 1px solid var(--border-medium);
+}
+.stress-type-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.stress-type-col ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+.stress-type-col li { margin-bottom: 0.15rem; }
+.stress-type-body { background: var(--bg-warm); }
+.stress-type-body .stress-type-label { color: var(--text); }
+.stress-type-mind { background: var(--primary-light); }
+.stress-type-mind .stress-type-label { color: var(--primary-text); }
+.stress-type-behavior { background: var(--accent); background: color-mix(in srgb, var(--accent) 12%, white); border-color: var(--accent); }
+.stress-type-behavior .stress-type-label { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .stress-types { grid-template-columns: 1fr; }
+}
+
 /* ── Chapter & Module ────────────────────────────── */
 
 .module-desc {

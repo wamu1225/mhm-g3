@@ -166,7 +166,7 @@ function App() {
 
   const parseInlineContent = useCallback((text: string): React.ReactNode => {
     function parseInline(t: string): React.ReactNode {
-      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\]|\[\[stress-cognitive-flow\]\]|\[\[stress-check-flow\]\])/g;
+      const regex = /(\*\*[\s\S]*?\*\*|\[\[term:.*?\]\][\s\S]*?\[\[\/term\]\]|\[\[care-layers\]\]|\[\[reintegration-flow\]\]|\[\[stress-cognitive-flow\]\]|\[\[stress-check-flow\]\]|\[\[line-care-flow\]\]|\[\[stress-response-types\]\])/g;
       const parts = t.split(regex);
       return (
         <>
@@ -320,6 +320,72 @@ function App() {
                 </svg>
                 <figcaption className="mhm-fig-cap">
                   ストレスチェックは年1回、医師・保健師等が実施し、結果は<strong>まず本人に直接通知</strong>される。事業者が結果を知るには<strong>本人の同意</strong>が必要で、同意しなければ高ストレスであってもその事実は事業者に伝わらない（左）。同意した場合に限り事業者は結果を把握でき、高ストレス者本人が希望すれば医師による面接指導を実施する（右）。「本人の同意」が事業者への情報伝達の唯一の入り口であることが、この制度のプライバシー保護の核心。
+                </figcaption>
+              </figure>
+            );
+            if (part === '[[line-care-flow]]') return (
+              <figure key={key} className="mhm-figure">
+                <svg viewBox="0 0 340 260" role="img" aria-label="ラインによるケアの流れ：いつもと違う部下に気づく→話を聴く→産業医等につなぐ。管理監督者自身は病気の診断をしない" className="mhm-fig-svg">
+                  <rect x="60" y="10" width="220" height="46" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" strokeWidth={1.4} />
+                  <text x="170" y="30" textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text)">「いつもと違う」部下に気づく</text>
+                  <text x="170" y="46" textAnchor="middle" fontSize={7.5} fill="var(--text-muted)">遅刻・欠勤増加、残業の不自然な増減など</text>
+
+                  <line x1={170} y1={56} x2={170} y2={74} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,78 165,70 175,70" fill="#94a3b8" />
+
+                  <rect x="60" y="78" width="220" height="42" rx="8" fill="var(--primary-light)" stroke="var(--primary)" strokeWidth={1.6} />
+                  <text x="170" y="103" textAnchor="middle" fontSize={12} fontWeight={700} fill="var(--primary-text)">話を聴く（傾聴）</text>
+
+                  <line x1={170} y1={120} x2={170} y2={138} stroke="#94a3b8" strokeWidth={1.6} />
+                  <polygon points="170,142 165,134 175,134" fill="#94a3b8" />
+
+                  <rect x="60" y="142" width="220" height="46" rx="8" fill="var(--primary-light)" stroke="var(--primary)" strokeWidth={1.6} />
+                  <text x="170" y="162" textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--primary-text)">産業医等の専門家につなぐ</text>
+                  <text x="170" y="178" textAnchor="middle" fontSize={7.5} fill="var(--text-muted)">病気かどうかの判断はしない</text>
+
+                  <line x1={170} y1={188} x2={170} y2={200} stroke="#94a3b8" strokeWidth={1.4} strokeDasharray="3,2" />
+                  <rect x="30" y="200" width="280" height="50" rx="8" fill="var(--accent)" fillOpacity="0.12" stroke="var(--accent)" strokeWidth={1.4} />
+                  <text x="170" y="219" textAnchor="middle" fontSize={9} fontWeight={700} fill="var(--accent)">✕ 管理監督者が病気だと決めつける</text>
+                  <text x="170" y="234" textAnchor="middle" fontSize={8} fill="var(--text-muted)">診断は医師の仕事——ここが頻出の引っかけ</text>
+                </svg>
+                <figcaption className="mhm-fig-cap">
+                  ラインによるケアの核心は、<strong>「いつもと違う」部下への気付き</strong>から始まり、<strong>話を聴いたうえで産業医等の専門家につなぐ</strong>ところまで。管理監督者自身が病気かどうかを診断することは求められておらず、むしろ<strong>してはいけない</strong>（診断は医師の仕事）。このほか、部下からの相談への日常的な対応、職場環境等の把握と改善もラインによるケアの柱（厚生労働省「労働者の心の健康の保持増進のための指針」）。
+                </figcaption>
+              </figure>
+            );
+            if (part === '[[stress-response-types]]') return (
+              <figure key={key} className="mhm-figure">
+                <div className="stress-types" role="img" aria-label="ストレス反応の3つの側面：身体的反応・心理的反応・行動的反応の例">
+                  <div className="stress-type-col stress-type-body">
+                    <span className="stress-type-label">身体的反応</span>
+                    <ul>
+                      <li>頭痛・肩こり</li>
+                      <li>胃痛・消化器症状</li>
+                      <li>不眠・疲労感</li>
+                      <li>動悸・発汗</li>
+                    </ul>
+                  </div>
+                  <div className="stress-type-col stress-type-mind">
+                    <span className="stress-type-label">心理的反応</span>
+                    <ul>
+                      <li>不安・焦り</li>
+                      <li>抑うつ感</li>
+                      <li>集中力・記憶力の低下</li>
+                      <li>感情の不安定さ・イライラ</li>
+                    </ul>
+                  </div>
+                  <div className="stress-type-col stress-type-behavior">
+                    <span className="stress-type-label">行動的反応</span>
+                    <ul>
+                      <li>遅刻・欠勤の増加</li>
+                      <li>飲酒・喫煙量の増加</li>
+                      <li>作業ミスの増加</li>
+                      <li>コミュニケーションの回避</li>
+                    </ul>
+                  </div>
+                </div>
+                <figcaption className="mhm-fig-cap">
+                  ストレス反応は<strong>身体・心理・行動</strong>の3つの側面に現れる。どれか1つとは限らず、複数が同時に、あるいは本人も気づかないまま進行することがある。「なんとなく調子が悪い」という段階で3側面のサインに気づくことが、セルフケアの第一歩。
                 </figcaption>
               </figure>
             );
