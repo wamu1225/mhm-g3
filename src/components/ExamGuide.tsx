@@ -132,7 +132,7 @@ export const ExamGuide: React.FC = () => (
         </table>
       </div>
 
-      <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '0.75rem', padding: '1rem' }}>
+      <div style={{ background: 'var(--primary-light)', border: '1px solid var(--border-medium)', borderRadius: '0.75rem', padding: '1rem' }}>
         <strong style={{ color: 'var(--primary)' }}>過去問主導型アプローチ（推奨）</strong>
         <ol style={{ fontSize: '0.875rem', margin: '0.5rem 0 0', paddingLeft: '1.25rem' }}>
           <li><strong>公式テキストを1周通読：</strong>全体像と専門用語を把握する。</li>

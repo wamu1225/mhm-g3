@@ -57,7 +57,7 @@ function mdToHtml(content: string): string {
     if (/^---+$/.test(t)) { out.push('<hr style="border:0;border-top:1px solid #ddd;margin:18px 0">'); i++; continue; }
     if (t.startsWith('#### ')) { out.push(`<h4 style="font-size:1rem;margin:16px 0 6px">${inlineHtml(t.slice(5))}</h4>`); i++; continue; }
     if (t.startsWith('### ')) { out.push(`<h3 style="font-size:1.05rem;margin:18px 0 6px">${inlineHtml(t.slice(4))}</h3>`); i++; continue; }
-    if (t.startsWith('## ')) { out.push(`<h2 style="font-size:1.2rem;margin:22px 0 8px;border-left:4px solid #2563eb;padding-left:10px">${inlineHtml(t.slice(3))}</h2>`); i++; continue; }
+    if (t.startsWith('## ')) { out.push(`<h2 style="font-size:1.2rem;margin:22px 0 8px;border-left:4px solid #3a8073;padding-left:10px">${inlineHtml(t.slice(3))}</h2>`); i++; continue; }
     if (t.startsWith('|')) {
       const rows: string[] = [];
       while (i < lines.length && lines[i].trim().startsWith('|')) { rows.push(lines[i].trim()); i++; }
@@ -65,7 +65,7 @@ function mdToHtml(content: string): string {
         .filter((cells) => !cells.every((c) => /^:?-+:?$/.test(c) || c === ''));
       if (parsed.length) {
         const [head, ...body] = parsed;
-        const th = head.map((c) => `<th style="text-align:left;padding:6px 10px;background:#eff6ff;border-bottom:2px solid #bfdbfe">${inlineHtml(c)}</th>`).join('');
+        const th = head.map((c) => `<th style="text-align:left;padding:6px 10px;background:#e7f3f0;border-bottom:2px solid #bfe3d7">${inlineHtml(c)}</th>`).join('');
         const trs = body.map((cells) => '<tr>' + cells.map((c) => `<td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top">${inlineHtml(c)}</td>`).join('') + '</tr>').join('');
         out.push(`<div style="overflow-x:auto;margin:14px 0"><table style="border-collapse:collapse;width:100%;font-size:0.92rem"><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table></div>`);
       }
@@ -100,21 +100,21 @@ const robotsMeta = '<meta name="robots" content="index, follow" />';
 
 // ── ルート index.html ────────────────────────────────
 const moduleListHtml = modules.map(m =>
-  `<li style="margin-bottom:12px"><a href="${BASE}/${m.id}/" style="color:#2563eb;font-weight:600;text-decoration:none">${m.title}</a><br><span style="color:#555;font-size:0.9rem">${m.description}</span></li>`
+  `<li style="margin-bottom:12px"><a href="${BASE}/${m.id}/" style="color:#3a8073;font-weight:600;text-decoration:none">${m.title}</a><br><span style="color:#555;font-size:0.9rem">${m.description}</span></li>`
 ).join('\n');
 
-const rootStaticContent = `<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#1e3a8a;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <h1 style="font-size:1.8rem;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-bottom:16px">メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</h1>
+const rootStaticContent = `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
+  <h1 style="font-size:1.8rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:16px">メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</h1>
   <p style="color:#444;margin-bottom:24px">メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す学習支援サイトです。ストレスの仕組み・セルフケア・対処法をわかりやすく解説しています。</p>
   <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:12px">学習モジュール一覧</h2>
   <ul style="list-style:none;padding:0">
 ${moduleListHtml}
   </ul>
   <nav style="margin-top:32px;border-top:1px solid #ddd;padding-top:16px;display:flex;gap:16px">
-    <a href="${BASE}/glossary/" style="color:#2563eb">用語集</a>
-    <a href="${BASE}/guide/" style="color:#2563eb">試験ガイド</a>
-    <a href="${BASE}/usecase/" style="color:#2563eb">セルフケア逆引きガイド</a>
-    <a href="${BASE}/about/" style="color:#2563eb">サイトについて</a>
+    <a href="${BASE}/glossary/" style="color:#3a8073">用語集</a>
+    <a href="${BASE}/guide/" style="color:#3a8073">試験ガイド</a>
+    <a href="${BASE}/usecase/" style="color:#3a8073">セルフケア逆引きガイド</a>
+    <a href="${BASE}/about/" style="color:#3a8073">サイトについて</a>
   </nav>
   <p style="font-size:0.8rem;color:#888;margin-top:20px;border-top:1px solid #eee;padding-top:12px">※本サイトは個人による学習支援サイトであり、大阪商工会議所の公式サイトではありません。</p>
 </article>`;
@@ -155,7 +155,7 @@ for (let i = 0; i < modules.length; i++) {
   // クイズスニペット（最初の3問）
   const quizSnippet = mod.quiz.slice(0, 3).map((q, qi) => {
     const correctAnswer = q.options[q.correctAnswer];
-    return `<div style="margin-bottom:12px;padding:12px;background:#f8fafc;border-radius:6px;border-left:3px solid #2563eb">
+    return `<div style="margin-bottom:12px;padding:12px;background:#f8fafc;border-radius:6px;border-left:3px solid #3a8073">
   <p style="margin:0 0 6px;font-weight:600;color:#1e3a5f">Q${qi + 1}. ${q.question.replace(/\*\*(.*?)\*\*/g, '$1')}</p>
   <p style="margin:0;color:#444;font-size:0.92rem">A. ${correctAnswer.replace(/\*\*(.*?)\*\*/g, '$1')}</p>
 </div>`;
@@ -172,19 +172,19 @@ for (let i = 0; i < modules.length; i++) {
   const relatedHtml = chapterMods.length > 0 ? `<section style="margin-top:28px;padding:16px;background:#f8fafc;border-radius:8px">
   <h2 style="font-size:1.05rem;font-weight:700;margin:0 0 10px;color:#1e3a5f">同じChapterの他のモジュール</h2>
   <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px">
-    ${chapterMods.map(m => `<li><a href="${BASE}/${m.id}/" style="color:#2563eb;text-decoration:none;font-size:0.9rem;background:#fff;border:1px solid #dbeafe;border-radius:4px;padding:3px 10px;display:inline-block">${m.title}</a></li>`).join('\n    ')}
+    ${chapterMods.map(m => `<li><a href="${BASE}/${m.id}/" style="color:#3a8073;text-decoration:none;font-size:0.9rem;background:#fff;border:1px solid #bfe3d7;border-radius:4px;padding:3px 10px;display:inline-block">${m.title}</a></li>`).join('\n    ')}
   </ul>
 </section>` : '';
 
   // 前後モジュールリンク
   const prevMod = i > 0 ? modules[i - 1] : null;
   const nextMod = i < modules.length - 1 ? modules[i + 1] : null;
-  const prevLink = prevMod ? `<a href="${BASE}/${prevMod.id}/" style="color:#2563eb;text-decoration:none">← ${prevMod.title}</a>` : '';
-  const nextLink = nextMod ? `<a href="${BASE}/${nextMod.id}/" style="color:#2563eb;text-decoration:none">${nextMod.title} →</a>` : '';
+  const prevLink = prevMod ? `<a href="${BASE}/${prevMod.id}/" style="color:#3a8073;text-decoration:none">← ${prevMod.title}</a>` : '';
+  const nextLink = nextMod ? `<a href="${BASE}/${nextMod.id}/" style="color:#3a8073;text-decoration:none">${nextMod.title} →</a>` : '';
 
-  const seoContentHtml = `<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#1e3a8a;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#2563eb;text-decoration:none">← 学習リファレンス ホーム</a></nav>
-  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-bottom:12px">${mod.title}</h1>
+  const seoContentHtml = `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
+  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#3a8073;text-decoration:none">← 学習リファレンス ホーム</a></nav>
+  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:12px">${mod.title}</h1>
   <p style="color:#555;margin-bottom:20px;font-size:1.05rem">${mod.description}</p>
   <div style="color:#333">${seoText}</div>
   ${quizSnippetHtml}
@@ -256,7 +256,7 @@ const glossaryTerms = Object.values(glossary);
 const glossaryTermsHtml = glossaryTerms.map(t =>
   `<div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #eee">
     <strong style="font-size:1rem;color:#1e3a5f">${t.term}</strong>
-    <span style="display:inline-block;font-size:0.75rem;color:#fff;background:${t.level === '基礎' ? '#16a34a' : t.level === '中級' ? '#2563eb' : '#9333ea'};padding:1px 6px;border-radius:4px;margin-left:8px">${t.level}</span>
+    <span style="display:inline-block;font-size:0.75rem;color:#fff;background:${t.level === '基礎' ? '#16a34a' : t.level === '中級' ? '#3a8073' : '#9333ea'};padding:1px 6px;border-radius:4px;margin-left:8px">${t.level}</span>
     <p style="margin:6px 0 0;color:#444;line-height:1.6">${t.explanation.replace(/\*\*(.*?)\*\*/g, '$1')}</p>
   </div>`
 ).join('\n');
@@ -272,9 +272,9 @@ const staticPageContents: Record<string, { title: string; description: string; b
   glossary: {
     title: '用語集',
     description: 'メンタルヘルスマネジメント検定Ⅲ種の頻出用語を一覧で解説。ストレス・セルフケア・4つのケア・ストレスチェック制度など試験に出る専門用語を網羅。',
-    bodyHtml: `<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#1e3a8a;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#2563eb;text-decoration:none">← ホームへ戻る</a></nav>
-  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-bottom:20px">用語集</h1>
+    bodyHtml: `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
+  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#3a8073;text-decoration:none">← ホームへ戻る</a></nav>
+  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:20px">用語集</h1>
   <p style="color:#555;margin-bottom:24px">メンタルヘルスマネジメント検定Ⅲ種の頻出用語を解説します。全${glossaryTerms.length}用語を難易度別に表示しています。</p>
 ${glossaryTermsHtml}
 </article>`,
@@ -296,9 +296,9 @@ ${glossaryTermsHtml}
         { '@type': 'Question', 'name': '安全配慮義務の根拠条文は何ですか？', 'acceptedAnswer': { '@type': 'Answer', 'text': '労働契約法第5条が根拠条文です。使用者（企業）は労働者の生命・身体等の安全を確保しつつ労働させる義務があります。' } },
       ]
     },
-    bodyHtml: `<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#1e3a8a;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#2563eb;text-decoration:none">← ホームへ戻る</a></nav>
-  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-bottom:20px">試験ガイド</h1>
+    bodyHtml: `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
+  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#3a8073;text-decoration:none">← ホームへ戻る</a></nav>
+  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:20px">試験ガイド</h1>
   <p style="color:#555;margin-bottom:24px">メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の試験概要を解説します。</p>
   <h2 style="font-size:1.2rem;font-weight:700;margin:20px 0 8px">試験概要</h2>
   <p style="color:#444">メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）は、自分自身のメンタルヘルス管理の知識を問う試験です。試験時間は120分、マークシート方式（4択50問）です。合格基準は100点満点中70点以上。合格率は約70〜80%で、社会人の受験者に広く受験されています。</p>
@@ -333,7 +333,7 @@ ${glossaryTermsHtml}
   <h2 style="font-size:1.2rem;font-weight:700;margin:20px 0 8px">学習の進め方</h2>
   <p style="color:#444">本サイトの${modules.length}つの学習モジュールをChapter 1から順に進めることで、試験範囲を体系的に学べます。各モジュールの確認クイズで理解度を確認し、全範囲クイズで総仕上げをすることをお勧めします。推奨学習時間は30〜50時間です。</p>
   <p style="margin-top:24px;font-size:0.85rem;color:#888">※最新情報は必ず大阪商工会議所の公式サイトでご確認ください。</p>
-  <p style="margin-top:16px"><a href="${BASE}/" style="color:#2563eb">← ホームへ戻る</a></p>
+  <p style="margin-top:16px"><a href="${BASE}/" style="color:#3a8073">← ホームへ戻る</a></p>
 </article>`
   },
   usecase: {
@@ -344,9 +344,9 @@ ${glossaryTermsHtml}
   about: {
     title: 'サイトについて',
     description: 'メンタルヘルスマネジメント検定Ⅲ種 学習リファレンスについて。サイトの目的・コンテンツ構成・利用方法を説明します。',
-    bodyHtml: `<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#1e3a8a;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#2563eb;text-decoration:none">← ホームへ戻る</a></nav>
-  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-bottom:20px">サイトについて</h1>
+    bodyHtml: `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
+  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#3a8073;text-decoration:none">← ホームへ戻る</a></nav>
+  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:20px">サイトについて</h1>
   <section style="margin-bottom:24px">
     <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">このサイトについて</h2>
     <p style="color:#444">「メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス」は、メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す方のための個人運営の学習支援サイトです。</p>
@@ -367,21 +367,21 @@ ${glossaryTermsHtml}
   </section>
   <section style="margin-bottom:24px">
     <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">お問い合わせ</h2>
-    <p style="color:#444">内容の誤り・ご意見・ご要望は<a href="https://forms.gle/ccMv7oKwz6ysDHBe6" target="_blank" rel="noopener noreferrer" style="color:#2563eb">こちらのGoogleフォーム</a>からお願いします。</p>
+    <p style="color:#444">内容の誤り・ご意見・ご要望は<a href="https://forms.gle/ccMv7oKwz6ysDHBe6" target="_blank" rel="noopener noreferrer" style="color:#3a8073">こちらのGoogleフォーム</a>からお願いします。</p>
   </section>
   <section>
     <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">免責事項</h2>
     <p style="color:#444">本サイトの解説・問題は学習目的で作成されており、内容の正確性・完全性を保証するものではありません。</p>
   </section>
-  <p style="margin-top:32px"><a href="${BASE}/" style="color:#2563eb">← ホームへ戻る</a></p>
+  <p style="margin-top:32px"><a href="${BASE}/" style="color:#3a8073">← ホームへ戻る</a></p>
 </article>`
   },
   privacy: {
     title: 'プライバシーポリシー',
     description: 'メンタルヘルスマネジメント検定Ⅲ種 学習リファレンスのプライバシーポリシー。個人情報の取り扱いについて説明します。',
-    bodyHtml: `<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#1e3a8a;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#2563eb;text-decoration:none">← ホームへ戻る</a></nav>
-  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #2563eb;padding-bottom:8px;margin-bottom:8px">プライバシーポリシー</h1>
+    bodyHtml: `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
+  <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#3a8073;text-decoration:none">← ホームへ戻る</a></nav>
+  <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:8px">プライバシーポリシー</h1>
   <p style="color:#888;font-size:0.9rem;margin-bottom:24px">最終更新：2026年4月</p>
   <section style="margin-bottom:20px">
     <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:8px">1. サイトについて</h2>
@@ -394,7 +394,7 @@ ${glossaryTermsHtml}
   </section>
   <section style="margin-bottom:20px">
     <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:8px">3. Google AdSense の利用</h2>
-    <p style="color:#444">広告配信のためにGoogle AdSenseを使用しています。<a href="https://www.google.com/settings/ads" style="color:#2563eb">広告設定ページ</a>でパーソナライズ広告を無効にできます。Cookieの使用については<a href="https://policies.google.com/technologies/ads" style="color:#2563eb">Googleの広告ポリシー</a>をご参照ください。</p>
+    <p style="color:#444">広告配信のためにGoogle AdSenseを使用しています。<a href="https://www.google.com/settings/ads" style="color:#3a8073">広告設定ページ</a>でパーソナライズ広告を無効にできます。Cookieの使用については<a href="https://policies.google.com/technologies/ads" style="color:#3a8073">Googleの広告ポリシー</a>をご参照ください。</p>
   </section>
   <section style="margin-bottom:20px">
     <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:8px">4. 学習進捗データ</h2>
@@ -404,7 +404,7 @@ ${glossaryTermsHtml}
     <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:8px">5. 免責事項</h2>
     <p style="color:#444">本サイトの解説・問題は学習目的で作成されており、内容の正確性を保証するものではありません。</p>
   </section>
-  <p style="margin-top:32px"><a href="${BASE}/" style="color:#2563eb">← ホームへ戻る</a></p>
+  <p style="margin-top:32px"><a href="${BASE}/" style="color:#3a8073">← ホームへ戻る</a></p>
 </article>`
   }
 };
@@ -478,9 +478,9 @@ console.log(`✅ Generated sitemap.xml with ${modules.length + staticPageNames.l
 // ── OGP Image ────────────────────────────────────────
 const ogpSvg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" fill="#f8fafc"/>
-  <rect width="1200" height="12" fill="#0075de"/>
-  <rect x="0" y="0" width="360" height="630" fill="#0075de" fill-opacity="0.05"/>
-  <rect x="80" y="230" width="8" height="160" rx="4" fill="#0075de"/>
+  <rect width="1200" height="12" fill="#3a8073"/>
+  <rect x="0" y="0" width="360" height="630" fill="#3a8073" fill-opacity="0.05"/>
+  <rect x="80" y="230" width="8" height="160" rx="4" fill="#3a8073"/>
   <text x="112" y="290" font-family="Yu Gothic UI,Yu Gothic,Meiryo,Hiragino Sans,sans-serif" font-size="42" font-weight="700" fill="#0f172a">メンタルヘルスマネジメント検定 Ⅲ種</text>
   <text x="112" y="358" font-family="Yu Gothic UI,Yu Gothic,Meiryo,Hiragino Sans,sans-serif" font-size="52" font-weight="700" fill="#0f172a">学習リファレンス</text>
   <text x="112" y="420" font-family="Yu Gothic UI,Yu Gothic,Meiryo,Hiragino Sans,sans-serif" font-size="26" fill="#64748b">ストレスの仕組み・セルフケア・メンタルヘルス対処法</text>
