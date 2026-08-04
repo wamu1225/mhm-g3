@@ -64,12 +64,13 @@ export const Quiz: React.FC<Props> = ({ questions, onComplete, renderContent, sh
             key={`${currentIdx}-${i}`}
             className="btn"
             style={{
-              background: selected === i
-                ? (i === question.correctAnswer ? '#22c55e' : '#ef4444')
+              background: selected !== null
+                ? (i === question.correctAnswer ? '#22c55e' : (selected === i ? '#ef4444' : '#ffffff'))
                 : '#ffffff',
-              color: selected === i ? 'white' : 'var(--text)',
+              color: selected !== null && (i === question.correctAnswer || selected === i) ? 'white' : 'var(--text)',
               justifyContent: 'space-between',
-              border: selected === i ? 'none' : '1px solid #e2e8f0',
+              border: selected !== null && (i === question.correctAnswer || selected === i) ? 'none' : '1px solid #e2e8f0',
+              opacity: selected !== null && selected !== i && i !== question.correctAnswer ? 0.6 : 1,
               textAlign: 'left',
               padding: '0.75rem 1rem',
               boxShadow: 'none',
@@ -79,9 +80,8 @@ export const Quiz: React.FC<Props> = ({ questions, onComplete, renderContent, sh
             onClick={() => handleSelect(i)}
           >
             <div style={{ flex: 1 }}>{renderContent(opt)}</div>
-            {selected === i && (
-              i === question.correctAnswer ? <CheckCircle2 size={18} /> : <XCircle size={18} />
-            )}
+            {selected !== null && i === question.correctAnswer && <CheckCircle2 size={18} />}
+            {selected === i && i !== question.correctAnswer && <XCircle size={18} />}
           </button>
         ))}
       </div>

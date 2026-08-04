@@ -631,10 +631,13 @@ function App() {
                         key={`rq-${rqIdx}-${i}`}
                         className="btn"
                         style={{
-                          background: rqSelected === i ? (i === rqQuestions[rqIdx].q.correctAnswer ? '#22c55e' : '#ef4444') : '#ffffff',
-                          color: rqSelected === i ? 'white' : 'var(--text)',
+                          background: rqSelected !== null
+                            ? (i === rqQuestions[rqIdx].q.correctAnswer ? '#22c55e' : (rqSelected === i ? '#ef4444' : '#ffffff'))
+                            : '#ffffff',
+                          color: rqSelected !== null && (i === rqQuestions[rqIdx].q.correctAnswer || rqSelected === i) ? 'white' : 'var(--text)',
                           justifyContent: 'space-between',
-                          border: rqSelected === i ? 'none' : '1px solid #e2e8f0',
+                          border: rqSelected !== null && (i === rqQuestions[rqIdx].q.correctAnswer || rqSelected === i) ? 'none' : '1px solid #e2e8f0',
+                          opacity: rqSelected !== null && rqSelected !== i && i !== rqQuestions[rqIdx].q.correctAnswer ? 0.6 : 1,
                           textAlign: 'left',
                           padding: '0.75rem 1rem',
                           boxShadow: 'none',
@@ -644,7 +647,8 @@ function App() {
                         onClick={() => rqHandleSelect(i)}
                       >
                         <div style={{ flex: 1 }}>{parseContent(opt)}</div>
-                        {rqSelected === i && (i === rqQuestions[rqIdx].q.correctAnswer ? <CheckCircle2 size={18} /> : <XCircle size={18} />)}
+                        {rqSelected !== null && i === rqQuestions[rqIdx].q.correctAnswer && <CheckCircle2 size={18} />}
+                        {rqSelected === i && i !== rqQuestions[rqIdx].q.correctAnswer && <XCircle size={18} />}
                       </button>
                     ))}
                   </div>
