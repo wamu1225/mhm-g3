@@ -632,7 +632,7 @@ function App() {
                         className="btn"
                         style={{
                           background: rqSelected !== null
-                            ? (i === rqQuestions[rqIdx].q.correctAnswer ? '#22c55e' : (rqSelected === i ? '#ef4444' : '#ffffff'))
+                            ? (i === rqQuestions[rqIdx].q.correctAnswer ? '#166534' : (rqSelected === i ? '#b91c1c' : '#ffffff'))
                             : '#ffffff',
                           color: rqSelected !== null && (i === rqQuestions[rqIdx].q.correctAnswer || rqSelected === i) ? 'white' : 'var(--text)',
                           justifyContent: 'space-between',
@@ -657,7 +657,7 @@ function App() {
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                         style={{ marginTop: '1.5rem', padding: '1rem', background: '#f8fafc', borderRadius: '0.5rem', border: '1px solid #e2e8f0' }}>
                         <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: 1.6 }}>
-                          <strong style={{ color: rqIsCorrect ? '#22c55e' : '#ef4444' }}>{rqIsCorrect ? '正解！' : '不正解...'}</strong><br />
+                          <strong style={{ color: rqIsCorrect ? '#166534' : '#b91c1c' }}>{rqIsCorrect ? '正解！' : '不正解...'}</strong><br />
                           {parseContent(rqQuestions[rqIdx].q.explanation)}
                         </p>
                         <button className="btn" style={{ marginTop: '1rem', width: 'auto', padding: '0.5rem 1rem' }} onClick={rqNext}>
