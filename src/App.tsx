@@ -282,7 +282,7 @@ function App() {
                   <text x="250" y="219" textAnchor="middle" fontSize={7.5} fill="var(--text-muted)">（本文のAさんタイプ）</text>
                 </svg>
                 <figcaption className="mhm-fig-cap">
-                  同じ<strong>ストレッサー</strong>（原因）を受けても、ストレス反応の強さは人によって異なる。この差を生むのが<strong>認知的評価</strong>——「これは自分にとって脅威か」「対処できる資源があるか」という受け取り方である。強い脅威と評価すればストレス反応は強くなり（本文のBさん）、対処可能と捉えれば反応は弱く済む（Aさん）。ストレッサーの強さそのものより、認知的評価の違いが個人差の正体。
+                  同じ<strong>ストレッサー</strong>（原因）を受けても、ストレス反応の強さは人によって異なる。この差を生むのが<strong>認知的評価</strong>：「これは自分にとって脅威か」「対処できる資源があるか」という受け取り方である。強い脅威と評価すればストレス反応は強くなり（本文のBさん）、対処可能と捉えれば反応は弱く済む（Aさん）。ストレッサーの強さそのものより、認知的評価の違いが個人差の正体。
                 </figcaption>
               </figure>
             );
@@ -346,7 +346,7 @@ function App() {
                   <line x1={170} y1={188} x2={170} y2={200} stroke="#94a3b8" strokeWidth={1.4} strokeDasharray="3,2" />
                   <rect x="30" y="200" width="280" height="50" rx="8" fill="var(--accent)" fillOpacity="0.12" stroke="var(--accent)" strokeWidth={1.4} />
                   <text x="170" y="219" textAnchor="middle" fontSize={9} fontWeight={700} fill="var(--accent)">✕ 管理監督者が病気だと決めつける</text>
-                  <text x="170" y="234" textAnchor="middle" fontSize={8} fill="var(--text-muted)">診断は医師の仕事——ここが頻出の引っかけ</text>
+                  <text x="170" y="234" textAnchor="middle" fontSize={8} fill="var(--text-muted)">診断は医師の仕事。ここが頻出の引っかけ</text>
                 </svg>
                 <figcaption className="mhm-fig-cap">
                   ラインによるケアの核心は、<strong>「いつもと違う」部下への気付き</strong>から始まり、<strong>話を聴いたうえで産業医等の専門家につなぐ</strong>ところまで。管理監督者自身が病気かどうかを診断することは求められておらず、むしろ<strong>してはいけない</strong>（診断は医師の仕事）。このほか、部下からの相談への日常的な対応、職場環境等の把握と改善もラインによるケアの柱（厚生労働省「労働者の心の健康の保持増進のための指針」）。

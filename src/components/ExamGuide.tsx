@@ -57,7 +57,7 @@ export const ExamGuide: React.FC = () => (
             <tr>
               <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>合格率</td>
               <td style={{ padding: '0.75rem' }}>約65〜78%（回により変動）</td>
-              <td style={{ padding: '0.75rem' }}>直近5回（2024年3月〜2026年3月）の実測：69.7%・65.1%・77.8%・74.3%・72.1%</td>
+              <td style={{ padding: '0.75rem' }}>直近5回（2024年3月〜2026年3月）の実測：69.7%、65.1%、77.8%、74.3%、72.1%</td>
             </tr>
           </tbody>
         </table>
