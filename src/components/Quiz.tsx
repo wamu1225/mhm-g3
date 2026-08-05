@@ -65,7 +65,7 @@ export const Quiz: React.FC<Props> = ({ questions, onComplete, renderContent, sh
             className="btn"
             style={{
               background: selected !== null
-                ? (i === question.correctAnswer ? '#22c55e' : (selected === i ? '#ef4444' : '#ffffff'))
+                ? (i === question.correctAnswer ? '#166534' : (selected === i ? '#b91c1c' : '#ffffff'))
                 : '#ffffff',
               color: selected !== null && (i === question.correctAnswer || selected === i) ? 'white' : 'var(--text)',
               justifyContent: 'space-between',
