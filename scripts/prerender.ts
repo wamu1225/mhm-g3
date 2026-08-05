@@ -13,6 +13,21 @@ const BASE = '/mhm-g3';
 const escHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const inlineHtml = (s: string) => escHtml(s.replace(/\[\[term:.*?\]\]|\[\[\/term\]\]|\[\[.*?\]\]/g, '')).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
+// 行頭の絵文字マーカーは装飾でなくテキストラベルへ（2026-08-06・O-2-8：
+// 生の絵文字グリフはOS/フォント依存で描画が不安定・アクセシビリティ上も弱い）。
+const LINE_MARKERS: Record<string, string> = {
+  '💡': 'ヒント',
+  '🎯': '試験ポイント',
+  '⚠️': '注意',
+  '📌': 'まとめ',
+  '📖': '発展',
+};
+// 見出しは見出し文自体が既に意味を伝えるため、絵文字だけ剥がす（ラベル追加はしない）。
+function stripLeadingMarker(text: string): string {
+  const markerKey = Object.keys(LINE_MARKERS).find((mk) => text.startsWith(mk));
+  return markerKey ? text.slice(markerKey.length).trim() : text;
+}
+
 // App.tsx内のJSX図（[[key]]でReact専用に描画されるSVG/CSS図）を静的HTMLでも表示する（2026-07-30・O-2-6続報）。
 // これまで行ごと除去していたため静的HTMLに図が1つも無かった。App.tsxの構造をそのまま複製し、既存CSSを共有する。
 const FIGURES: Record<string, string> = {
@@ -55,9 +70,9 @@ function mdToHtml(content: string): string {
     if (figKey && FIGURES[figKey[1]]) { out.push(FIGURES[figKey[1]]); i++; continue; }
     if (t === '' || /^\[\[.*?\]\]$/.test(t)) { i++; continue; }
     if (/^---+$/.test(t)) { out.push('<hr style="border:0;border-top:1px solid #ddd;margin:18px 0">'); i++; continue; }
-    if (t.startsWith('#### ')) { out.push(`<h4 style="font-size:1rem;margin:16px 0 6px">${inlineHtml(t.slice(5))}</h4>`); i++; continue; }
-    if (t.startsWith('### ')) { out.push(`<h3 style="font-size:1.05rem;margin:18px 0 6px">${inlineHtml(t.slice(4))}</h3>`); i++; continue; }
-    if (t.startsWith('## ')) { out.push(`<h2 style="font-size:1.2rem;margin:22px 0 8px;border-left:4px solid #3a8073;padding-left:10px">${inlineHtml(t.slice(3))}</h2>`); i++; continue; }
+    if (t.startsWith('#### ')) { out.push(`<h4 style="font-size:1rem;margin:16px 0 6px">${inlineHtml(stripLeadingMarker(t.slice(5)))}</h4>`); i++; continue; }
+    if (t.startsWith('### ')) { out.push(`<h3 style="font-size:1.05rem;margin:18px 0 6px">${inlineHtml(stripLeadingMarker(t.slice(4)))}</h3>`); i++; continue; }
+    if (t.startsWith('## ')) { out.push(`<h2 style="font-size:1.2rem;margin:22px 0 8px;border-left:4px solid #3a8073;padding-left:10px">${inlineHtml(stripLeadingMarker(t.slice(3)))}</h2>`); i++; continue; }
     if (t.startsWith('|')) {
       const rows: string[] = [];
       while (i < lines.length && lines[i].trim().startsWith('|')) { rows.push(lines[i].trim()); i++; }
@@ -82,6 +97,11 @@ function mdToHtml(content: string): string {
       while (i < lines.length && /^[-*]\s/.test(lines[i].trim())) { items.push(lines[i].trim().replace(/^[-*]\s/, '')); i++; }
       out.push('<ul style="padding-left:20px">' + items.map((it) => `<li>${inlineHtml(it)}</li>`).join('') + '</ul>');
       continue;
+    }
+    const markerKey = Object.keys(LINE_MARKERS).find((mk) => t.startsWith(mk));
+    if (markerKey) {
+      const rest = t.slice(markerKey.length).trim();
+      out.push(`<p style="margin:0 0 12px"><strong style="color:#2563eb">${LINE_MARKERS[markerKey]}：</strong>${inlineHtml(rest)}</p>`); i++; continue;
     }
     out.push(`<p style="margin:0 0 12px">${inlineHtml(t)}</p>`); i++;
   }
