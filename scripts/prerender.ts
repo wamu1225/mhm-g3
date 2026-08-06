@@ -102,7 +102,11 @@ function mdToHtml(content: string): string {
     const markerKey = Object.keys(LINE_MARKERS).find((mk) => t.startsWith(mk));
     if (markerKey) {
       const rest = t.slice(markerKey.length).trim();
-      out.push(`<p style="margin:0 0 12px"><strong style="color:#2563eb">${LINE_MARKERS[markerKey]}：</strong>${inlineHtml(rest)}</p>`); i++; continue;
+      // App.tsx と同じ規則：本文が自前の太字ラベルで始まるならそちらを優先し、ラベルの二重表示を防ぐ。
+      const own = rest.match(/^\*\*([^*]+[：:])\*\*\s*/);
+      const label = own ? own[1].replace(/[：:]$/, '') : LINE_MARKERS[markerKey];
+      const body = own ? rest.slice(own[0].length) : rest;
+      out.push(`<p style="margin:0 0 12px"><strong style="color:#2563eb">${label}：</strong>${inlineHtml(body)}</p>`); i++; continue;
     }
     out.push(`<p style="margin:0 0 12px">${inlineHtml(t)}</p>`); i++;
   }

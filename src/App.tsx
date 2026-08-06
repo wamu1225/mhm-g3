@@ -479,7 +479,11 @@ function App() {
       const markerKey = Object.keys(LINE_MARKERS).find((mk) => trimmedLine.startsWith(mk));
       if (markerKey) {
         const rest = trimmedLine.slice(markerKey.length).trim();
-        result.push(<p key={key} className="content-p"><strong style={{ color: '#2563eb' }}>{LINE_MARKERS[markerKey]}：</strong>{parseInlineContent(rest)}</p>);
+        // 本文が自前の太字ラベルで始まっていれば、そちらを使いマーカー由来のラベルは出さない（stats-g3と同じ規則・二重表示防止）。
+        const own = rest.match(/^\*\*([^*]+[：:])\*\*\s*/);
+        const label = own ? own[1].replace(/[：:]$/, '') : LINE_MARKERS[markerKey];
+        const body = own ? rest.slice(own[0].length) : rest;
+        result.push(<p key={key} className="content-p"><strong style={{ color: '#2563eb' }}>{label}：</strong>{parseInlineContent(body)}</p>);
         return;
       }
       result.push(<p key={key} className="content-p">{parseInlineContent(line)}</p>);
