@@ -5,6 +5,7 @@ import { modules } from '../src/data/modules';
 import { glossary } from '../src/data/glossary';
 import { buildUsecaseHtml } from '../src/data/usecaseGuide';
 import { EXAM_CONFIG } from '../src/data/examConfig';
+import { chapterNames } from '../src/data/chapters';
 
 const DIST_DIR = path.resolve(process.cwd(), 'dist');
 const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
@@ -262,24 +263,35 @@ const templateHtml = fs.readFileSync(INDEX_HTML_PATH, 'utf-8');
 const robotsMeta = '<meta name="robots" content="index, follow" />';
 
 // ── ルート index.html ────────────────────────────────
-const moduleListHtml = modules.map(m =>
-  `<li style="margin-bottom:12px"><a href="${BASE}/${m.id}/" style="color:#3a8073;font-weight:600;text-decoration:none">${m.title}</a><br><span style="color:#555;font-size:0.9rem">${m.description}</span></li>`
-).join('\n');
+let lastChapter = 0;
+const moduleListHtml = modules.map(m => {
+  const header = m.chapter !== lastChapter
+    ? (lastChapter !== 0 ? '</ul>' : '') + `<h3 style="font-size:1rem;font-weight:700;color:#3a8073;margin:20px 0 8px">Chapter ${m.chapter}　${chapterNames[m.chapter]}</h3><ul style="list-style:none;padding:0">`
+    : '';
+  lastChapter = m.chapter;
+  return `${header}<li style="margin-bottom:12px"><a href="${BASE}/${m.id}/" style="color:#3a8073;font-weight:600;text-decoration:none">Chapter ${m.chapter}　${m.title}</a><br><span style="color:#555;font-size:0.9rem">${m.description}</span></li>`;
+}).join('\n') + '</ul>';
 
 const rootStaticContent = `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
-  <h1 style="font-size:1.8rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:16px">メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス</h1>
+  <h1 style="font-size:1.8rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:16px">メンタルヘルスマネジメント検定 Ⅲ種 セルフケアコース 学習リファレンス</h1>
+  <p style="color:#444;margin-bottom:8px">全${modules.length}モジュール・${modules.reduce((s: number, m: { quiz: unknown[] }) => s + m.quiz.length, 0)}問クイズ・用語集で合格をサポート</p>
   <p style="color:#444;margin-bottom:24px">メンタルヘルスマネジメント検定Ⅲ種（セルフケアコース）の合格を目指す学習支援サイトです。ストレスの仕組み・セルフケア・対処法をわかりやすく解説しています。</p>
+  <nav style="margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap">
+    <a href="${BASE}/" style="color:#3a8073">ロードマップ</a>
+    <a href="${BASE}/glossary/" style="color:#3a8073">用語集</a>
+    <a href="${BASE}/randomquiz/" style="color:#3a8073">全範囲クイズ</a>
+    <a href="${BASE}/guide/" style="color:#3a8073">試験ガイド</a>
+    <a href="${BASE}/usecase/" style="color:#3a8073">逆引きガイド</a>
+  </nav>
   <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:12px">学習モジュール一覧</h2>
-  <ul style="list-style:none;padding:0">
 ${moduleListHtml}
-  </ul>
   <nav style="margin-top:32px;border-top:1px solid #ddd;padding-top:16px;display:flex;gap:16px">
     <a href="${BASE}/glossary/" style="color:#3a8073">用語集</a>
     <a href="${BASE}/guide/" style="color:#3a8073">試験ガイド</a>
     <a href="${BASE}/usecase/" style="color:#3a8073">セルフケア逆引きガイド</a>
     <a href="${BASE}/about/" style="color:#3a8073">サイトについて</a>
   </nav>
-  <p style="font-size:0.8rem;color:#888;margin-top:20px;border-top:1px solid #eee;padding-top:12px">※本サイトは個人による学習支援サイトであり、大阪商工会議所の公式サイトではありません。</p>
+  <p style="font-size:0.8rem;color:#888;margin-top:20px;border-top:1px solid #eee;padding-top:12px"><strong>注意：</strong>本サイトは個人による学習支援サイトであり、大阪商工会議所の公式サイトではありません。</p>
 </article>`;
 
 let rootIndexHtml = templateHtml.replace('<div id="root"></div>', `<div id="root">${rootStaticContent}</div>`);
