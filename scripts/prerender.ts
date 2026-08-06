@@ -57,6 +57,144 @@ const FIGURES: Record<string, string> = {
   </div>
   <figcaption class="mhm-fig-cap">「4つのケア」は並列の4項目ではなく、<strong>労働者本人を中心に、内側から外側へ層をなす</strong>関係にある。①セルフケア（本人）→②ラインによるケア（直属の上司）→③事業場内産業保健スタッフ（産業医・保健師）→④事業場外資源（EAP等）の順で、外側に行くほど専門性・匿名性が高まる。内側の層で対応しきれない場合に、外側の層へつなぐ（早期発見・早期対応の連携）。</figcaption>
 </figure>`,
+  'reintegration-flow': `<figure class="mhm-figure">
+  <svg viewBox="0 0 340 380" role="img" aria-label="職場復帰支援の5ステップの流れ：第1ステップ病気休業開始から第5ステップ職場復帰後のフォローアップまで" class="mhm-fig-svg">
+    <rect x="20" y="10" width="300" height="52" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6" />
+    <text x="170" y="28" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--primary-text)">第1ステップ</text>
+    <text x="170" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">病気休業開始及び休業中のケア</text>
+    <line x1="170" y1="62" x2="170" y2="80" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,84 165,76 175,76" fill="#94a3b8" />
+    <rect x="20" y="84" width="300" height="52" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="170" y="102" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-muted)">第2ステップ</text>
+    <text x="170" y="120" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">主治医による職場復帰可能の判断</text>
+    <line x1="170" y1="136" x2="170" y2="154" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,158 165,150 175,150" fill="#94a3b8" />
+    <rect x="20" y="158" width="300" height="64" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="170" y="176" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-muted)">第3ステップ</text>
+    <text x="170" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">職場復帰の可否の判断及び</text>
+    <text x="170" y="209" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">職場復帰支援プランの作成</text>
+    <line x1="170" y1="222" x2="170" y2="240" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,244 165,236 175,236" fill="#94a3b8" />
+    <rect x="20" y="244" width="300" height="52" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="170" y="262" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-muted)">第4ステップ</text>
+    <text x="170" y="280" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">最終的な職場復帰の決定</text>
+    <line x1="170" y1="296" x2="170" y2="314" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,318 165,310 175,310" fill="#94a3b8" />
+    <rect x="20" y="318" width="300" height="52" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6" />
+    <text x="170" y="336" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--primary-text)">第5ステップ</text>
+    <text x="170" y="354" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">職場復帰後のフォローアップ</text>
+  </svg>
+  <figcaption class="mhm-fig-cap">職場復帰支援は、厚生労働省の手引きが定める<strong>第1〜第5ステップ</strong>を段階的にたどる。第1ステップ（休業開始・休業中のケア）と第2ステップ（主治医の職場復帰可能の判断）を経て、第3ステップで産業医・事業者・人事が連携して<strong>職場復帰の可否の判断と支援プランの作成</strong>を行う。第4ステップで事業者が最終決定し、復帰後も第5ステップとしてフォローアップが続く。「主治医の判断＝即復帰」ではなく、第3・第4ステップの手続きを経ることが試験の要点。</figcaption>
+</figure>`,
+  'stress-cognitive-flow': `<figure class="mhm-figure">
+  <svg viewBox="0 0 340 250" role="img" aria-label="ストレス発生のプロセス：ストレッサーが認知的評価を経てストレス反応につながり、評価の違いが個人差を生む" class="mhm-fig-svg">
+    <rect x="95" y="10" width="150" height="44" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="170" y="30" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--text)">ストレッサー</text>
+    <text x="170" y="45" text-anchor="middle" font-size="8" fill="var(--text-muted)">（原因となる外部の刺激）</text>
+    <line x1="170" y1="54" x2="170" y2="72" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,76 165,68 175,68" fill="#94a3b8" />
+    <rect x="60" y="76" width="220" height="60" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6" />
+    <text x="170" y="96" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--primary-text)">認知的評価</text>
+    <text x="170" y="112" text-anchor="middle" font-size="8" fill="var(--text-muted)">「これは脅威になるか？」</text>
+    <text x="170" y="125" text-anchor="middle" font-size="8" fill="var(--text-muted)">「対処できる資源があるか？」</text>
+    <line x1="170" y1="136" x2="170" y2="150" stroke="#94a3b8" stroke-width="1.6" />
+    <line x1="90" y1="150" x2="250" y2="150" stroke="#94a3b8" stroke-width="1.6" />
+    <line x1="90" y1="150" x2="90" y2="166" stroke="#94a3b8" stroke-width="1.6" />
+    <line x1="250" y1="150" x2="250" y2="166" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="90,170 85,162 95,162" fill="#94a3b8" />
+    <polygon points="250,170 245,162 255,162" fill="#94a3b8" />
+    <rect x="15" y="170" width="150" height="62" rx="8" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="1.4" />
+    <text x="90" y="190" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text)">脅威と評価</text>
+    <text x="90" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--accent)">ストレス反応：強い</text>
+    <text x="90" y="219" text-anchor="middle" font-size="7.5" fill="var(--text-muted)">（本文のBさんタイプ）</text>
+    <rect x="175" y="170" width="150" height="62" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="250" y="190" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text)">対処可能と評価</text>
+    <text x="250" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text)">ストレス反応：弱い</text>
+    <text x="250" y="219" text-anchor="middle" font-size="7.5" fill="var(--text-muted)">（本文のAさんタイプ）</text>
+  </svg>
+  <figcaption class="mhm-fig-cap">同じ<strong>ストレッサー</strong>（原因）を受けても、ストレス反応の強さは人によって異なる。この差を生むのが<strong>認知的評価</strong>：「これは自分にとって脅威か」「対処できる資源があるか」という受け取り方である。強い脅威と評価すればストレス反応は強くなり（本文のBさん）、対処可能と捉えれば反応は弱く済む（Aさん）。ストレッサーの強さそのものより、認知的評価の違いが個人差の正体。</figcaption>
+</figure>`,
+  'stress-check-flow': `<figure class="mhm-figure">
+  <svg viewBox="0 0 340 260" role="img" aria-label="ストレスチェック実施の流れ：実施から結果通知、本人の同意を経て初めて事業者に結果が伝わる分岐" class="mhm-fig-svg">
+    <rect x="95" y="10" width="150" height="46" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="170" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text)">ストレスチェック実施</text>
+    <text x="170" y="46" text-anchor="middle" font-size="7.5" fill="var(--text-muted)">（年1回・医師/保健師等が実施）</text>
+    <line x1="170" y1="56" x2="170" y2="74" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,78 165,70 175,70" fill="#94a3b8" />
+    <rect x="60" y="78" width="220" height="42" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6" />
+    <text x="170" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="var(--primary-text)">結果を本人に直接通知</text>
+    <line x1="170" y1="120" x2="170" y2="136" stroke="#94a3b8" stroke-width="1.6" />
+    <line x1="90" y1="136" x2="250" y2="136" stroke="#94a3b8" stroke-width="1.6" />
+    <line x1="90" y1="136" x2="90" y2="152" stroke="#94a3b8" stroke-width="1.6" />
+    <line x1="250" y1="136" x2="250" y2="152" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="90,156 85,148 95,148" fill="#94a3b8" />
+    <polygon points="250,156 245,148 255,148" fill="#94a3b8" />
+    <rect x="15" y="156" width="150" height="72" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="90" y="176" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text)">本人が同意しない</text>
+    <text x="90" y="192" text-anchor="middle" font-size="8" fill="var(--text-muted)">事業者には結果が</text>
+    <text x="90" y="204" text-anchor="middle" font-size="8" fill="var(--text-muted)">伝わらない</text>
+    <text x="90" y="218" text-anchor="middle" font-size="7" fill="var(--text-muted)">（ここで終了）</text>
+    <rect x="175" y="156" width="150" height="72" rx="8" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="1.4" />
+    <text x="250" y="176" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text)">本人が同意する</text>
+    <text x="250" y="192" text-anchor="middle" font-size="8" fill="var(--text-muted)">事業者に結果提供</text>
+    <text x="250" y="204" text-anchor="middle" font-size="8" font-weight="700" fill="var(--accent)">高ストレス者は</text>
+    <text x="250" y="216" text-anchor="middle" font-size="8" font-weight="700" fill="var(--accent)">面接指導を申出可</text>
+  </svg>
+  <figcaption class="mhm-fig-cap">ストレスチェックは年1回、医師・保健師等が実施し、結果は<strong>まず本人に直接通知</strong>される。事業者が結果を知るには<strong>本人の同意</strong>が必要で、同意しなければ高ストレスであってもその事実は事業者に伝わらない（左）。同意した場合に限り事業者は結果を把握でき、高ストレス者本人が希望すれば医師による面接指導を実施する（右）。「本人の同意」が事業者への情報伝達の唯一の入り口であることが、この制度のプライバシー保護の核心。</figcaption>
+</figure>`,
+  'line-care-flow': `<figure class="mhm-figure">
+  <svg viewBox="0 0 340 260" role="img" aria-label="ラインによるケアの流れ：いつもと違う部下に気づく→話を聴く→産業医等につなぐ。管理監督者自身は病気の診断をしない" class="mhm-fig-svg">
+    <rect x="60" y="10" width="220" height="46" rx="8" fill="var(--bg-warm)" stroke="var(--border-medium)" stroke-width="1.4" />
+    <text x="170" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text)">「いつもと違う」部下に気づく</text>
+    <text x="170" y="46" text-anchor="middle" font-size="7.5" fill="var(--text-muted)">遅刻・欠勤増加、残業の不自然な増減など</text>
+    <line x1="170" y1="56" x2="170" y2="74" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,78 165,70 175,70" fill="#94a3b8" />
+    <rect x="60" y="78" width="220" height="42" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6" />
+    <text x="170" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="var(--primary-text)">話を聴く（傾聴）</text>
+    <line x1="170" y1="120" x2="170" y2="138" stroke="#94a3b8" stroke-width="1.6" />
+    <polygon points="170,142 165,134 175,134" fill="#94a3b8" />
+    <rect x="60" y="142" width="220" height="46" rx="8" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="1.6" />
+    <text x="170" y="162" text-anchor="middle" font-size="11" font-weight="700" fill="var(--primary-text)">産業医等の専門家につなぐ</text>
+    <text x="170" y="178" text-anchor="middle" font-size="7.5" fill="var(--text-muted)">病気かどうかの判断はしない</text>
+    <line x1="170" y1="188" x2="170" y2="200" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3,2" />
+    <rect x="30" y="200" width="280" height="50" rx="8" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="1.4" />
+    <text x="170" y="219" text-anchor="middle" font-size="9" font-weight="700" fill="var(--accent)">✕ 管理監督者が病気だと決めつける</text>
+    <text x="170" y="234" text-anchor="middle" font-size="8" fill="var(--text-muted)">診断は医師の仕事。ここが頻出の引っかけ</text>
+  </svg>
+  <figcaption class="mhm-fig-cap">ラインによるケアの核心は、<strong>「いつもと違う」部下への気付き</strong>から始まり、<strong>話を聴いたうえで産業医等の専門家につなぐ</strong>ところまで。管理監督者自身が病気かどうかを診断することは求められておらず、むしろ<strong>してはいけない</strong>（診断は医師の仕事）。このほか、部下からの相談への日常的な対応、職場環境等の把握と改善もラインによるケアの柱（厚生労働省「労働者の心の健康の保持増進のための指針」）。</figcaption>
+</figure>`,
+  'stress-response-types': `<figure class="mhm-figure">
+  <div class="stress-types" role="img" aria-label="ストレス反応の3つの側面：身体的反応・心理的反応・行動的反応の例">
+    <div class="stress-type-col stress-type-body">
+      <span class="stress-type-label">身体的反応</span>
+      <ul>
+        <li>頭痛・肩こり</li>
+        <li>胃痛・消化器症状</li>
+        <li>不眠・疲労感</li>
+        <li>動悸・発汗</li>
+      </ul>
+    </div>
+    <div class="stress-type-col stress-type-mind">
+      <span class="stress-type-label">心理的反応</span>
+      <ul>
+        <li>不安・焦り</li>
+        <li>抑うつ感</li>
+        <li>集中力・記憶力の低下</li>
+        <li>感情の不安定さ・イライラ</li>
+      </ul>
+    </div>
+    <div class="stress-type-col stress-type-behavior">
+      <span class="stress-type-label">行動的反応</span>
+      <ul>
+        <li>遅刻・欠勤の増加</li>
+        <li>飲酒・喫煙量の増加</li>
+        <li>作業ミスの増加</li>
+        <li>コミュニケーションの回避</li>
+      </ul>
+    </div>
+  </div>
+  <figcaption class="mhm-fig-cap">ストレス反応は<strong>身体・心理・行動</strong>の3つの側面に現れる。どれか1つとは限らず、複数が同時に、あるいは本人も気づかないまま進行することがある。「なんとなく調子が悪い」という段階で3側面のサインに気づくことが、セルフケアの第一歩。</figcaption>
+</figure>`,
 };
 
 // 表・見出し・リストを静的HTMLへ変換（旧stripMarkdownは表を丸ごと削除していたため新設。
@@ -404,7 +542,7 @@ ${glossaryTermsHtml}
   <p style="color:#444">Ⅲ種（セルフケアコース）の合格はメンタルヘルスの第一歩です。Ⅱ種（ラインケアコース）では部下・チームのメンタルヘルスマネジメントを、Ⅰ種（マスターコース）では企業全体の制度設計を学べます。ⅢとⅡは出題範囲が多く重複しているため、同時学習による相乗効果も期待できます。</p>
 
   <h2 style="font-size:1.2rem;font-weight:700;margin:20px 0 8px">免責事項</h2>
-  <p style="color:#888;font-size:0.9rem;border-left:3px solid #fbbf24;padding-left:12px">⚠️ 本サイトは大阪商工会議所の公式サイトではありません。試験の出題範囲・申込方法・合否については必ず公式サイトをご確認ください。</p>
+  <p style="color:#888;font-size:0.9rem;border-left:3px solid #fbbf24;padding-left:12px"><strong>注意：</strong>本サイトは大阪商工会議所の公式サイトではありません。試験の出題範囲・申込方法・合否については必ず公式サイトをご確認ください。</p>
   <p style="margin-top:16px"><a href="${BASE}/" style="color:#3a8073">← ホームへ戻る</a></p>
 </article>`
   },
@@ -458,7 +596,7 @@ ${glossaryTermsHtml}
   <section style="margin-bottom:20px">
     <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:8px">1. サイトについて</h2>
     <p style="color:#444">本サイト「メンタルヘルスマネジメント検定 Ⅲ種 学習リファレンス」は、メンタルヘルスマネジメント検定Ⅲ種の学習を支援することを目的とした個人運営のサイトです。</p>
-    <p style="color:#888;font-size:0.9rem;margin-top:8px">⚠️ 本サイトは大阪商工会議所の公式サイトではありません。試験の出題範囲・申込方法・合否については、必ず公式サイトをご確認ください。</p>
+    <p style="color:#888;font-size:0.9rem;margin-top:8px"><strong>注意：</strong>本サイトは大阪商工会議所の公式サイトではありません。試験の出題範囲・申込方法・合否については、必ず公式サイトをご確認ください。</p>
   </section>
   <section style="margin-bottom:20px">
     <h2 style="font-size:1.15rem;font-weight:700;margin-bottom:8px">2. 学習進捗データについて</h2>

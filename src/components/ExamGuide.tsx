@@ -241,7 +241,7 @@ export const ExamGuide: React.FC = () => (
     <section>
       <h3><AlertCircle size={16} style={{ display: 'inline', marginRight: '6px' }} />免責事項</h3>
       <p className="privacy-disclaimer">
-        ⚠️ 本サイトは大阪商工会議所の公式サイトではありません。
+        <strong>注意：</strong>本サイトは大阪商工会議所の公式サイトではありません。
         試験の出題範囲・申込方法・合否については必ず公式サイトをご確認ください。
       </p>
     </section>
