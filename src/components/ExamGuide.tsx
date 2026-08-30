@@ -217,7 +217,7 @@ export const ExamGuide: React.FC = () => (
               <td style={{ padding: '0.75rem', color: '#6b7280' }}>短縮版は23項目。ストレスチェックで標準使用</td>
             </tr>
             <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>2006年策定・2015年改正</td>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold', color: '#b45309' }}>2000年策定・2006/2015年改正</td>
               <td style={{ padding: '0.75rem' }}>「労働者の心の健康の保持増進のための指針」（4つのケアの根拠）</td>
               <td style={{ padding: '0.75rem', color: '#6b7280' }}>厚生労働省</td>
             </tr>
