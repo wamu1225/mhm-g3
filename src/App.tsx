@@ -363,7 +363,12 @@ function App() {
             );
             if (part === '[[stress-response-types]]') return (
               <figure key={key} className="mhm-figure">
-                <div className="stress-types" role="img" aria-label="ストレス反応の3つの側面：身体的反応・心理的反応・行動的反応の例">
+                <div className="stress-types" role="img" aria-label="1つのストレス反応が、身体的反応・心理的反応・行動的反応の3つの側面に同時に現れることを示す図">
+                  <div className="stress-source-row">
+                    <span className="stress-source-pill">1つのストレス反応</span>
+                  </div>
+                  <div className="stress-source-arrow" aria-hidden="true">↓ 同時に現れうる ↓</div>
+                  <div className="stress-type-cols">
                   <div className="stress-type-col stress-type-body">
                     <span className="stress-type-label">身体的反応</span>
                     <ul>
@@ -390,6 +395,7 @@ function App() {
                       <li>作業ミスの増加</li>
                       <li>コミュニケーションの回避</li>
                     </ul>
+                  </div>
                   </div>
                 </div>
                 <figcaption className="mhm-fig-cap">

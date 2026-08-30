@@ -420,7 +420,29 @@
   opacity: 0.85;
 }
 
-.stress-types {
+.stress-source-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+.stress-source-pill {
+  background: var(--primary-light);
+  color: var(--primary-text);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+}
+.stress-source-arrow {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+.stress-type-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.6rem;
@@ -452,7 +474,7 @@
 .stress-type-behavior .stress-type-label { color: var(--accent); }
 
 @media (max-width: 480px) {
-  .stress-types { grid-template-columns: 1fr; }
+  .stress-type-cols { grid-template-columns: 1fr; }
 }
 
 /* ── Chapter & Module ────────────────────────────── */
