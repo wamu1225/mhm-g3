@@ -16,12 +16,15 @@ export interface Module {
   content: string;
   scope: 'Ⅲ種';
   quiz: QuizQuestion[];
+  /** この本文が最後に実質更新された日（git log -L で当該行範囲の最終コミット日を実測） */
+  updatedAt: string;
 }
 
 export const modules: Module[] = [
   // ── Chapter 1: メンタルヘルスケアの意義 ──────────────────────────────
   {
     id: '1.1-meaning',
+    updatedAt: '2026-08-05',
     title: 'メンタルヘルスとは何か・職場での重要性',
     chapter: 1,
     scope: 'Ⅲ種',
@@ -146,6 +149,7 @@ export const modules: Module[] = [
 
   {
     id: '1.2-four-care',
+    updatedAt: '2026-08-30',
     title: '4つのケアと予防の3段階',
     chapter: 1,
     scope: 'Ⅲ種',
@@ -313,6 +317,7 @@ export const modules: Module[] = [
   // ── Chapter 2: ストレスとメンタルヘルスの基礎知識 ──────────────────────
   {
     id: '2.1-stress-basics',
+    updatedAt: '2026-08-05',
     title: 'ストレスの仕組みとストレス反応',
     chapter: 2,
     scope: 'Ⅲ種',
@@ -502,6 +507,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
   // ── Chapter 2 続き ───────────────────────────────────────────────────────
   {
     id: '2.2-mental-disorders',
+    updatedAt: '2026-08-29',
     title: '主なメンタルヘルス不調の知識',
     chapter: 2,
     scope: 'Ⅲ種',
@@ -686,6 +692,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
   // ── Chapter 3: セルフケアの重要性と進め方 ────────────────────────────────
   {
     id: '3.1-selfcare',
+    updatedAt: '2026-08-05',
     title: 'セルフケアの実践と社内外の相談資源',
     chapter: 3,
     scope: 'Ⅲ種',
@@ -846,6 +853,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
   // ── Chapter 4: ストレスへの気づき方 ───────────────────────────────────────
   {
     id: '4.1-awareness',
+    updatedAt: '2026-08-05',
     title: 'ストレスへの気づき方と自己チェック',
     chapter: 4,
     scope: 'Ⅲ種',
@@ -990,6 +998,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
 
   {
     id: '4.2-stress-check',
+    updatedAt: '2026-08-29',
     title: 'ストレスチェック制度と長時間労働対策',
     chapter: 4,
     scope: 'Ⅲ種',
@@ -1156,6 +1165,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
   // ── Chapter 5: ストレスへの対処・軽減の方法 ─────────────────────────────
   {
     id: '5.1-coping',
+    updatedAt: '2026-08-05',
     title: 'コーピングとリラクセーション技法',
     chapter: 5,
     scope: 'Ⅲ種',
@@ -1317,6 +1327,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
 
   {
     id: '5.2-lifestyle',
+    updatedAt: '2026-08-05',
     title: '生活習慣とストレス耐性',
     chapter: 5,
     scope: 'Ⅲ種',
@@ -1455,6 +1466,7 @@ GASを見ると「ストレスは身体を壊す」と怖くなるかもしれ�
   // ── Chapter 6: 社内外資源の活用 ─────────────────────────────────────────
   {
     id: '6.1-resources',
+    updatedAt: '2026-08-05',
     title: '社内外資源の活用と援助希求',
     chapter: 6,
     scope: 'Ⅲ種',
