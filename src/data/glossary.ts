@@ -245,7 +245,7 @@ export const glossary: Record<string, Term> = {
   'jdc-model': {
     id: 'jdc-model',
     term: 'JDCモデル／JDCSモデル（仕事の要求度-コントロール-サポートモデル）',
-    explanation: 'Karasekが提唱したJDCモデルは、仕事の「要求度（Job Demands）」と「コントロール（Control）」の**2要素**でストレスの高さを説明します。これにJohnson & Hallが「サポート（Support）」を加えた**3要素版がJDCSモデル**という別名称のモデルです。「要求度が高く・コントロールが低く・サポートが少ない」状態が最もストレスが高いとされるのはJDCSモデルの説明です。職業性ストレス簡易調査票はJDCSモデルの考え方をベースにしています。',
+    explanation: 'Karasekが提唱したJDCモデルは、仕事の「要求度（Job Demands）」と「コントロール（Control）」の2要素でストレスの高さを説明します。これにJohnson & Hallが「サポート（Support）」を加えた3要素版が、JDCSモデルという別名称のモデルです。「要求度が高く・コントロールが低く・サポートが少ない」状態が最もストレスが高いとされるのはJDCSモデルの説明です。職業性ストレス簡易調査票はJDCSモデルの考え方をベースにしています。',
     level: '上級',
     scope: 'Ⅲ種',
     relatedTerms: ['stressor', 'stress-check', 'occupational-stress-scale']
