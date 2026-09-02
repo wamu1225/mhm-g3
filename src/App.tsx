@@ -618,6 +618,13 @@ function App() {
                       {rqResults.filter(r => r.correct).length} <span style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>/ {rqResults.length} 問正解</span>
                     </div>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>全範囲クイズ完了</p>
+                    {progress['random-quiz'] && progress['random-quiz'].attempts > 1 && (
+                      <p className="score-banner-history" style={{ margin: 0 }}>
+                        {progress['random-quiz'].attempts}回目
+                        {typeof progress['random-quiz'].previousScore === 'number' && progress['random-quiz'].score > (progress['random-quiz'].previousScore as number) && `・前回より+${progress['random-quiz'].score - (progress['random-quiz'].previousScore as number)}問アップ`}
+                        {progress['random-quiz'].score < progress['random-quiz'].bestScore && `・自己ベスト ${progress['random-quiz'].bestScore} / ${progress['random-quiz'].total}`}
+                      </p>
+                    )}
                   </div>
                   {(() => {
                     const byModule: Record<string, { title: string; correct: number; total: number }> = {};
