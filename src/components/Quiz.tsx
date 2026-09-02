@@ -17,6 +17,7 @@ export const Quiz: React.FC<Props> = ({ questions, onComplete, renderContent, sh
   const [selected, setSelected] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
+  const [finished, setFinished] = useState(false);
 
   const question = questions[currentIdx];
 
@@ -33,7 +34,10 @@ export const Quiz: React.FC<Props> = ({ questions, onComplete, renderContent, sh
       setCurrentIdx(currentIdx + 1);
       setSelected(null);
       setIsCorrect(null);
-    } else {
+    } else if (!finished) {
+      // 最終問題の「セクションを完了する」ボタンは完了後も表示されたままなので、
+      // 二度押しでonCompleteが再発火し進捗の回数カウントが誤って増えないようガードする。
+      setFinished(true);
       onComplete(correctCount, questions.length);
     }
   };
@@ -101,10 +105,11 @@ export const Quiz: React.FC<Props> = ({ questions, onComplete, renderContent, sh
             </p>
             <button
               className="btn"
-              style={{ marginTop: '1rem', width: 'auto', padding: '0.5rem 1rem' }}
+              style={{ marginTop: '1rem', width: 'auto', padding: '0.5rem 1rem', opacity: finished ? 0.6 : 1, cursor: finished ? 'default' : 'pointer' }}
               onClick={next}
+              disabled={finished}
             >
-              {currentIdx + 1 < questions.length ? '次の問題へ' : 'セクションを完了する'}
+              {finished ? '完了しました' : (currentIdx + 1 < questions.length ? '次の問題へ' : 'セクションを完了する')}
               <ChevronRight size={18} />
             </button>
           </motion.div>

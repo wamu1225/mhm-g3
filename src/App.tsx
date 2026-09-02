@@ -28,7 +28,7 @@ function stripLeadingMarker(text: string): string {
   return markerKey ? text.slice(markerKey.length).trim() : text;
 }
 
-interface ProgressEntry { score: number; total: number; completedAt: string; }
+interface ProgressEntry { score: number; total: number; completedAt: string; attempts: number; bestScore: number; previousScore?: number; }
 type Progress = Record<string, ProgressEntry>;
 
 function loadProgress(): Progress {
@@ -94,7 +94,13 @@ function App() {
       setRqResults(newResults);
       setRqDone(true);
       const correctCount = newResults.filter(r => r.correct).length;
-      const entry: ProgressEntry = { score: correctCount, total: newResults.length, completedAt: new Date().toLocaleDateString('ja-JP') };
+      const prevEntry = loadProgress()['random-quiz'];
+      const entry: ProgressEntry = {
+        score: correctCount, total: newResults.length, completedAt: new Date().toLocaleDateString('ja-JP'),
+        attempts: (prevEntry?.attempts || 0) + 1,
+        bestScore: Math.max(prevEntry?.bestScore ?? 0, correctCount),
+        previousScore: prevEntry?.score,
+      };
       const next = { ...loadProgress(), 'random-quiz': entry };
       saveProgress(next);
       setProgress(next);
@@ -136,7 +142,13 @@ function App() {
 
   const handleQuizComplete = useCallback((moduleId: string, score: number, total: number) => {
     setQuizCompleted(true);
-    const entry: ProgressEntry = { score, total, completedAt: new Date().toLocaleDateString('ja-JP') };
+    const prevEntry = loadProgress()[moduleId];
+    const entry: ProgressEntry = {
+      score, total, completedAt: new Date().toLocaleDateString('ja-JP'),
+      attempts: (prevEntry?.attempts || 0) + 1,
+      bestScore: Math.max(prevEntry?.bestScore ?? 0, score),
+      previousScore: prevEntry?.score,
+    };
     const next = { ...loadProgress(), [moduleId]: entry };
     saveProgress(next);
     setProgress(next);
@@ -570,8 +582,17 @@ function App() {
                 <div style={{ marginTop: '1rem' }}>
                   {activeModuleId && progress[activeModuleId] && (
                     <div className="score-banner">
-                      {progress[activeModuleId].score} / {progress[activeModuleId].total} 問正解
-                      {progress[activeModuleId].score === progress[activeModuleId].total && ' 🎉 パーフェクト！'}
+                      <div>
+                        {progress[activeModuleId].score} / {progress[activeModuleId].total} 問正解
+                        {progress[activeModuleId].score === progress[activeModuleId].total && ' 🎉 パーフェクト！'}
+                      </div>
+                      {progress[activeModuleId].attempts > 1 && (
+                        <div className="score-banner-history">
+                          {progress[activeModuleId].attempts}回目
+                          {typeof progress[activeModuleId].previousScore === 'number' && progress[activeModuleId].score > (progress[activeModuleId].previousScore as number) && `・前回より+${progress[activeModuleId].score - (progress[activeModuleId].previousScore as number)}問アップ`}
+                          {progress[activeModuleId].score < progress[activeModuleId].bestScore && `・自己ベスト ${progress[activeModuleId].bestScore} / ${progress[activeModuleId].total}`}
+                        </div>
+                      )}
                     </div>
                   )}
                   <div style={{ display: 'flex', gap: '1rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>

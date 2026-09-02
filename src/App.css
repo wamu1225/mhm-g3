@@ -794,6 +794,12 @@ input[type="range"] {
   color: var(--primary-hover);
   text-align: center;
 }
+.score-banner-history {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
 
 /* ── Cheat Sheet ─────────────────────────────────── */
 
