@@ -154,7 +154,7 @@ const FIGURES: Record<string, string> = {
     <line x1="170" y1="206" x2="170" y2="222" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3,2" />
     <rect x="30" y="222" width="280" height="62" rx="8" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="1.4" />
     <text x="170" y="246" text-anchor="middle" font-size="12" font-weight="700" fill="var(--accent)">✕ 管理監督者が病気だと決めつける</text>
-    <text x="170" y="266" text-anchor="middle" font-size="12" fill="var(--text-muted)">診断は医師の仕事。ここが頻出の引っかけ</text>
+    <text x="170" y="266" text-anchor="middle" font-size="12" fill="var(--text-muted)">診断は医師の仕事。ここを取り違えやすい</text>
   </svg>
   <figcaption class="mhm-fig-cap">ラインによるケアの核心は、<strong>「いつもと違う」部下への気付き</strong>から始まり、<strong>話を聴いたうえで産業医等の専門家につなぐ</strong>ところまで。管理監督者自身が病気かどうかを診断することは求められておらず、むしろ<strong>してはいけない</strong>（診断は医師の仕事）。このほか、部下からの相談への日常的な対応、職場環境等の把握と改善もラインによるケアの柱（厚生労働省「労働者の心の健康の保持増進のための指針」）。</figcaption>
 </figure>`,
@@ -446,11 +446,11 @@ const glossaryFaqItems = glossaryTerms.slice(0, 20).map(t => ({
 const staticPageContents: Record<string, { title: string; description: string; bodyHtml: string; jsonLd?: object }> = {
   glossary: {
     title: '用語集',
-    description: 'メンタルヘルスマネジメント検定Ⅲ種の頻出用語を一覧で解説。ストレス・セルフケア・4つのケア・ストレスチェック制度など試験に出る専門用語を網羅。',
+    description: 'メンタルヘルスマネジメント検定Ⅲ種で扱う用語を一覧で解説。ストレス・セルフケア・4つのケア・ストレスチェック制度など試験に出る専門用語を網羅。',
     bodyHtml: `<div style="background:#e7f3f0;border-bottom:1px solid #bfe3d7;padding:10px 16px;font-size:0.88rem;text-align:center;margin-bottom:16px;border-radius:6px;max-width:860px;margin-left:auto;margin-right:auto"><a href="https://study-apps.com/" style="color:#235c50;text-decoration:none;font-weight:600">← study-apps.com 学習サイト集トップへ</a></div><article id="static-fallback" style="font-family:sans-serif;line-height:1.7;max-width:860px;margin:0 auto;padding:24px 16px">
   <nav style="margin-bottom:16px"><a href="${BASE}/" style="color:#3a8073;text-decoration:none">← ホームへ戻る</a></nav>
   <h1 style="font-size:1.6rem;font-weight:700;border-bottom:2px solid #3a8073;padding-bottom:8px;margin-bottom:20px">用語集</h1>
-  <p style="color:#555;margin-bottom:24px">メンタルヘルスマネジメント検定Ⅲ種の頻出用語を解説します。全${glossaryTerms.length}用語を難易度別に表示しています。</p>
+  <p style="color:#555;margin-bottom:24px">メンタルヘルスマネジメント検定Ⅲ種で扱う用語を解説します。全${glossaryTerms.length}用語を難易度別に表示しています。</p>
 ${glossaryTermsHtml}
 </article>`,
     jsonLd: { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': glossaryFaqItems }
@@ -495,7 +495,7 @@ ${glossaryTermsHtml}
   <h3 style="font-size:1.05rem;font-weight:700;color:#3a8073;margin:16px 0 6px">① メンタルヘルスケアの意義</h3>
   <p style="color:#444">厚生労働省の指針に定められた「4つのケア」（セルフケア・ラインによるケア・事業場内・事業場外）は全試験級で共通する最重要項目。各ケアの担い手と役割を正確に区別すること。</p>
   <h3 style="font-size:1.05rem;font-weight:700;color:#3a8073;margin:16px 0 6px">② ストレスとメンタルヘルスの基礎知識</h3>
-  <p style="color:#444">ハンス・セリエの一般適応症候群（警告反応期→抵抗期→疲憊期）、ラザルスの認知的評価モデル、代表的精神疾患（うつ病・適応障害・パニック障害）の症状の区別が頻出。</p>
+  <p style="color:#444">ハンス・セリエの一般適応症候群（警告反応期→抵抗期→疲憊期）、ラザルスの認知的評価モデル、代表的精神疾患（うつ病・適応障害・パニック障害）の症状の区別が、対応を決める土台になる。</p>
   <h3 style="font-size:1.05rem;font-weight:700;color:#3a8073;margin:16px 0 6px">③ セルフケアの重要性</h3>
   <p style="color:#444">労働契約法における「安全配慮義務」（企業側）と「自己保健義務」（労働者側）。この対となる義務の理解がセルフケアの実践を倫理的に正当化します。</p>
   <h3 style="font-size:1.05rem;font-weight:700;color:#3a8073;margin:16px 0 6px">④ ストレスへの気づき方</h3>
@@ -517,7 +517,7 @@ ${glossaryTermsHtml}
   <p style="color:#444"><strong style="color:#3a8073">過去問主導型アプローチ（推奨）</strong></p>
   <ol style="color:#444;padding-left:20px">
     <li><strong>公式テキストを1周通読：</strong>全体像と専門用語を把握する。</li>
-    <li><strong>分野別過去問を実施：</strong>頻出項目と自身の弱点を特定する。</li>
+    <li><strong>分野別過去問を実施：</strong>間違えた項目から、自身の弱点を特定する。</li>
     <li><strong>間違えた箇所をテキストで復習：</strong>「なぜその選択肢が正しいか説明できる」レベルへ。</li>
     <li><strong>本番形式の模擬試験：</strong>120分の時間感覚と問題を最後まで解く体験をする。</li>
   </ol>
@@ -528,7 +528,7 @@ ${glossaryTermsHtml}
     <li><strong>時間は十分ある：</strong>${EXAM_CONFIG.duration}分で${EXAM_CONFIG.questionCount}あるため、1問に2分以上かけられます。落ち着いて読みましょう。</li>
     <li><strong>「最も適切なもの」に注意：</strong>「正しいもの」ではなく「最も適切なもの」を選ぶ問題が多いため、選択肢を全部読んでから比較します。</li>
     <li><strong>感覚で答えない：</strong>「なんとなく」ではなく、定義・法令・数値を根拠に選ぶ習慣をつけましょう。</li>
-    <li><strong>数値は正確に：</strong>「50人以上」「年1回」「2015年」「${EXAM_CONFIG.passingScore}点以上」「6時間以上」などの数値は頻出です。</li>
+    <li><strong>数値は正確に：</strong>「50人以上」「年1回」「2015年」「${EXAM_CONFIG.passingScore}点以上」「6時間以上」などの数値は、取り違えると設問の判断を誤りやすい箇所です。</li>
   </ul>
 
   <h2 style="font-size:1.2rem;font-weight:700;margin:20px 0 8px">重要数値チートシート</h2>
@@ -578,7 +578,7 @@ ${glossaryTermsHtml}
     <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">コンテンツ構成</h2>
     <ul style="color:#444;padding-left:20px">
       <li><strong>学習モジュール（全${modules.length}モジュール）</strong>：${modules.map(m => m.title).join('・')}</li>
-      <li><strong>用語集</strong>：頻出用語の解説</li>
+      <li><strong>用語集</strong>：Ⅲ種で扱う用語の解説</li>
       <li><strong>確認クイズ</strong>：各モジュールの理解度確認（全${modules.reduce((s: number, m: { quiz: unknown[] }) => s + m.quiz.length, 0)}問）</li>
       <li><strong>全範囲クイズ</strong>：全モジュールからランダム出題</li>
     </ul>
