@@ -76,7 +76,7 @@ export const ExamGuide: React.FC = () => (
 
         <h4 style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>② ストレスとメンタルヘルスの基礎知識</h4>
         <p style={{ marginBottom: '1rem' }}>
-          ハンス・セリエの一般適応症候群（警告反応期→抵抗期→疲憊期）、ラザルスの認知的評価モデル、代表的精神疾患（うつ病・適応障害・パニック障害）の症状の区別が頻出。
+          ハンス・セリエの一般適応症候群（警告反応期→抵抗期→疲憊期）、ラザルスの認知的評価モデル、代表的精神疾患（うつ病・適応障害・パニック障害）の症状の区別が、対応を決める土台になる。
         </p>
 
         <h4 style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>③ セルフケアの重要性</h4>
@@ -136,7 +136,7 @@ export const ExamGuide: React.FC = () => (
         <strong style={{ color: 'var(--primary)' }}>過去問主導型アプローチ（推奨）</strong>
         <ol style={{ fontSize: '0.875rem', margin: '0.5rem 0 0', paddingLeft: '1.25rem' }}>
           <li><strong>公式テキストを1周通読：</strong>全体像と専門用語を把握する。</li>
-          <li><strong>分野別過去問を実施：</strong>頻出項目と自身の弱点を特定する。</li>
+          <li><strong>分野別過去問を実施：</strong>間違えた項目から、自身の弱点を特定する。</li>
           <li><strong>間違えた箇所をテキストで復習：</strong>「なぜその選択肢が正しいか説明できる」レベルへ。</li>
           <li><strong>本番形式の模擬試験：</strong>120分の時間感覚と問題を最後まで解く体験をする。</li>
         </ol>
@@ -152,7 +152,7 @@ export const ExamGuide: React.FC = () => (
         <li><strong>時間は十分ある：</strong>{EXAM_CONFIG.duration}分で{EXAM_CONFIG.questionCount}あるため、1問に2分以上かけられます。落ち着いて読みましょう。</li>
         <li><strong>「最も適切なもの」に注意：</strong>「正しいもの」ではなく「最も適切なもの」を選ぶ問題が多いため、選択肢を全部読んでから比較します。</li>
         <li><strong>感覚で答えない：</strong>「なんとなく」ではなく、定義・法令・数値を根拠に選ぶ習慣をつけましょう。</li>
-        <li><strong>数値は正確に：</strong>「50人以上」「年1回」「2015年」「{EXAM_CONFIG.passingScore}点以上」「6時間以上」などの数値は頻出です。</li>
+        <li><strong>数値は正確に：</strong>「50人以上」「年1回」「2015年」「{EXAM_CONFIG.passingScore}点以上」「6時間以上」などの数値は、取り違えると設問の判断を誤りやすい箇所です。</li>
       </ul>
     </section>
 

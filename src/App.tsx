@@ -366,7 +366,7 @@ function App() {
                   <line x1={170} y1={206} x2={170} y2={222} stroke="#94a3b8" strokeWidth={1.4} strokeDasharray="3,2" />
                   <rect x="30" y="222" width="280" height="62" rx="8" fill="var(--accent)" fillOpacity="0.12" stroke="var(--accent)" strokeWidth={1.4} />
                   <text x="170" y="246" textAnchor="middle" fontSize={12} fontWeight={700} fill="var(--accent)">✕ 管理監督者が病気だと決めつける</text>
-                  <text x="170" y="266" textAnchor="middle" fontSize={12} fill="var(--text-muted)">診断は医師の仕事。ここが頻出の引っかけ</text>
+                  <text x="170" y="266" textAnchor="middle" fontSize={12} fill="var(--text-muted)">診断は医師の仕事。ここを取り違えやすい</text>
                 </svg>
                 <figcaption className="mhm-fig-cap">
                   ラインによるケアの核心は、<strong>「いつもと違う」部下への気付き</strong>から始まり、<strong>話を聴いたうえで産業医等の専門家につなぐ</strong>ところまで。管理監督者自身が病気かどうかを診断することは求められておらず、むしろ<strong>してはいけない</strong>（診断は医師の仕事）。このほか、部下からの相談への日常的な対応、職場環境等の把握と改善もラインによるケアの柱（厚生労働省「労働者の心の健康の保持増進のための指針」）。
@@ -773,7 +773,7 @@ function App() {
             <motion.div key="glossary" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}>
               <div style={{ marginBottom: '1.5rem' }}>
                 <h2 style={{ margin: '0 0 0.25rem', fontSize: '1.25rem', fontWeight: 800 }}>用語集</h2>
-                <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-muted)' }}>メンタルヘルスマネジメント検定Ⅲ種の頻出用語をまとめました。</p>
+                <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-muted)' }}>メンタルヘルスマネジメント検定Ⅲ種で扱う用語をまとめました。</p>
               </div>
               <div className="glossary-grid">
                 {Object.values(glossary).map(term => {
@@ -818,7 +818,7 @@ function App() {
                   <h3>コンテンツ構成</h3>
                   <ul>
                     <li><strong>学習モジュール（全{modules.length}モジュール）</strong>：{modules.map(m => m.title).join('・')}</li>
-                    <li><strong>用語集</strong>：Ⅲ種頻出用語の解説</li>
+                    <li><strong>用語集</strong>：Ⅲ種で扱う用語の解説</li>
                     <li><strong>全範囲クイズ</strong>：全モジュールからランダム出題</li>
                   </ul>
                 </section>
